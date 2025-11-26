@@ -1,0 +1,148 @@
+import { Container } from "@/components/layout/container";
+import { SectionHeading } from "@/components/ui/section-heading";
+import {
+  education,
+  experience,
+  interests,
+  skillGroups,
+} from "@/data/profile";
+import { siteConfig } from "@/config/site";
+
+export default function AboutPage() {
+  return (
+    <Container className="space-y-16">
+      <section className="space-y-6">
+        <SectionHeading
+          eyebrow="À propos"
+          title="Ingénieur Développement & Data Science"
+          description="Double diplômé ESTIA · Master MBDS (Big Data & Systèmes Intelligents), avec un fort intérêt pour la data, l’IA, le développement logiciel et les systèmes embarqués."
+        />
+        <p className="text-base text-zinc-600 dark:text-zinc-300">
+          Je recherche des missions où livrer des API robustes, des pipelines de
+          données et des automatisations documentées. J’apprécie les solutions
+          techniques complètes : ingestion, traitement, exposition REST ainsi que
+          la mise en place d’outils analytiques pour les équipes produit.
+        </p>
+      </section>
+
+      <section className="grid gap-10 md:grid-cols-2">
+        <div className="space-y-6 rounded-3xl border border-zinc-200/60 bg-white/80 p-8 dark:border-zinc-800/70 dark:bg-zinc-950/60">
+          <SectionHeading
+            eyebrow="Formations"
+            title="Parcours académique"
+            description="Master MBDS, cycle ingénieur ESTIA, mobilité internationale et bases scientifiques solides."
+          />
+          <ul className="space-y-5">
+            {education.map((item) => (
+              <li key={item.title}>
+                <p className="text-sm font-semibold text-zinc-900 dark:text-white">
+                  {item.title}
+                </p>
+                <p className="text-sm text-zinc-600 dark:text-zinc-300">
+                  {item.organisation} · {item.period}
+                </p>
+                <p className="mt-1 text-sm text-zinc-500">{item.summary}</p>
+              </li>
+            ))}
+          </ul>
+        </div>
+        <div className="space-y-6 rounded-3xl border border-zinc-200/60 bg-white/80 p-8 dark:border-zinc-800/70 dark:bg-zinc-950/60">
+          <SectionHeading
+            eyebrow="Expériences"
+            title="Stages orientés data & systèmes"
+            description="De la conception d’API et pipelines ETL aux systèmes embarqués pour escape game."
+          />
+          <ul className="space-y-5">
+            {experience.map((item) => (
+              <li key={item.title}>
+                <p className="text-sm font-semibold text-zinc-900 dark:text-white">
+                  {item.title}
+                </p>
+                <p className="text-sm text-zinc-600 dark:text-zinc-300">
+                  {item.organisation} · {item.period}
+                </p>
+                <p className="mt-1 text-sm text-zinc-500">{item.summary}</p>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </section>
+
+      <section className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        {skillGroups.map((group) => (
+          <SkillColumn key={group.title} title={group.title} items={group.items} />
+        ))}
+      </section>
+
+      <section className="rounded-3xl border border-zinc-200/60 bg-white/80 p-8 dark:border-zinc-800/70 dark:bg-zinc-950/60">
+        <SectionHeading
+          eyebrow="Centres d’intérêt"
+          title="Équilibre personnel"
+          description="Arts du cirque (5 ans de représentations), histoire, cuisine, cyclisme et course à pied."
+        />
+        <ul className="mt-6 flex flex-wrap gap-3 text-sm text-zinc-600 dark:text-zinc-300">
+          {interests.map((interest) => (
+            <li
+              key={interest}
+              className="rounded-full border border-zinc-200/70 px-4 py-2 dark:border-zinc-700"
+            >
+              {interest}
+            </li>
+          ))}
+        </ul>
+      </section>
+
+      <section className="rounded-3xl border border-zinc-200/60 bg-gradient-to-br from-cyan-600 via-cyan-700 to-slate-900 p-10 text-white">
+        <div className="space-y-4">
+          <p className="text-xs uppercase tracking-[0.4em] text-white/60">
+            Disponible
+          </p>
+          <h2 className="text-3xl font-semibold">
+            Besoin d’un profil hybride data, IA et développement logiciel ?
+          </h2>
+          <p className="text-sm text-white/80">
+            Discutons de vos API, pipelines, automatisations ou expérimentations
+            IA. Je réponds rapidement via email ou téléphone.
+          </p>
+          <div className="flex flex-wrap gap-3">
+            <a
+              href={siteConfig.links.email}
+              className="rounded-full bg-white px-6 py-3 text-sm font-semibold text-slate-900"
+            >
+              Écrire un email
+            </a>
+            <a
+              href={siteConfig.links.linkedin}
+              target="_blank"
+              rel="noreferrer"
+              className="rounded-full border border-white/60 px-6 py-3 text-sm font-semibold text-white"
+            >
+              LinkedIn
+            </a>
+          </div>
+        </div>
+      </section>
+    </Container>
+  );
+}
+
+type SkillColumnProps = {
+  title: string;
+  items: string[];
+};
+
+function SkillColumn({ title, items }: SkillColumnProps) {
+  return (
+    <div className="rounded-3xl border border-zinc-200/60 bg-white/80 p-6 dark:border-zinc-800/70 dark:bg-zinc-950/60">
+      <p className="text-sm font-semibold text-zinc-900 dark:text-white">
+        {title}
+      </p>
+      <ul className="mt-3 space-y-2 text-sm text-zinc-600 dark:text-zinc-300">
+        {items.map((item) => (
+          <li key={item}>• {item}</li>
+        ))}
+      </ul>
+    </div>
+  );
+}
+
