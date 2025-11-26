@@ -67,6 +67,7 @@ export const skillGroups: SkillGroup[] = [
   { title: "Langages", items: ["Python", "Java", "C++"] },
   { title: "Bases de données", items: ["SQL", "MySQL", "PostgreSQL"] },
   { title: "Outils", items: ["Git", "GitHub"] },
+  { title: "IDE maîtrisés", items: ["VS Code", "Cursor"] },
   { title: "Cloud", items: ["AWS"] },
   { title: "Big Data", items: ["Kafka", "Hadoop"] },
   { title: "DevOps", items: ["Docker"] },

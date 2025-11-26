@@ -8,6 +8,13 @@ export type Project = {
 
 export const projects: Project[] = [
   {
+    title: "Site vitrine Next.js",
+    description:
+      "Conception et déploiement du site personnel responsive (Next.js 14, Tailwind, Vercel) avec formulaires, sections thématiques et dark mode.",
+    tags: ["Next.js", "Tailwind CSS", "Vercel"],
+    repoUrl: "https://github.com/RoiBrioche/site-web-vitrine",
+  },
+  {
     title: "Dashboard interactif anti-phishing",
     description:
       "Collecte, agrégation et visualisation des alertes sécurité grâce à un pipeline complet pour surveiller les campagnes de phishing.",
