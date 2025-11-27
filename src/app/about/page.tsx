@@ -107,7 +107,15 @@ export default function AboutPage() {
           <div className="flex flex-wrap gap-3">
             <a
               href={siteConfig.links.email}
-              className="rounded-full bg-white px-6 py-3 text-sm font-semibold text-slate-900"
+              className="
+                rounded-full
+                px-6 py-3 text-sm font-semibold
+                border border-transparent
+                transition
+                bg-white !text-zinc-900
+                hover:bg-zinc-100 hover:border-zinc-900
+                dark:bg-white dark:!text-zinc-900 dark:hover:bg-zinc-200
+              "
             >
               Écrire un email
             </a>
@@ -125,6 +133,8 @@ export default function AboutPage() {
     </Container>
   );
 }
+
+
 
 type SkillColumnProps = {
   title: string;

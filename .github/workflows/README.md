@@ -24,3 +24,4 @@ Pour activer la protection de branche sur GitHub :
 3. Cochez "Require status checks to pass before merging"
 4. Sélectionnez "quality-check" dans la liste
 
+
