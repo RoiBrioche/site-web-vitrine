@@ -11,7 +11,7 @@ export const projects: Project[] = [
     title: "Site vitrine Next.js",
     description:
       "Conception et déploiement du site personnel responsive (Next.js 14, Tailwind, Vercel) avec formulaires, sections thématiques et dark mode.",
-    tags: ["Next.js", "Tailwind CSS", "Vercel"],
+    tags: ["Next.js", "Tailwind CSS", "Vercel", "IA Générative"],
     repoUrl: "https://github.com/RoiBrioche/site-web-vitrine",
   },
   {

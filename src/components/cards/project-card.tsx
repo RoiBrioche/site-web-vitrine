@@ -36,7 +36,15 @@ export function ProjectCard({ project }: ProjectCardProps) {
               href={project.repoUrl}
               target="_blank"
               rel="noreferrer"
-              className="rounded-full bg-zinc-900 px-4 py-2 text-white transition hover:bg-zinc-700 dark:bg-white dark:text-black dark:hover:bg-zinc-200"
+              className="
+                rounded-full
+                px-6 py-3 text-sm font-semibold
+                border border-transparent
+                transition
+                bg-white !text-zinc-900
+                hover:bg-zinc-100 hover:border-zinc-900
+                dark:bg-white dark:!text-zinc-900 dark:hover:bg-zinc-200
+              "
             >
               Voir le code
             </Link>

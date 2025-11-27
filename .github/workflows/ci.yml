@@ -40,3 +40,4 @@ jobs:
           # Variables d'environnement pour le build (ajustez selon vos besoins)
           NEXT_PUBLIC_SITE_URL: "http://localhost:3000"
 
+
