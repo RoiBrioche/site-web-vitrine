@@ -4,8 +4,10 @@ import { Container } from "./container";
 
 const navLinks = [
   { href: "/", label: "Accueil" },
-  { href: "/about", label: "À propos" },
   { href: "/projects", label: "Projets" },
+  { href: "/experiences", label: "Expériences" },
+  { href: "/education", label: "Formations" },
+  { href: "/about", label: "À propos" },
   { href: "/contact", label: "Contact" },
 ];
 
