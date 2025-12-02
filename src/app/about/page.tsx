@@ -1,11 +1,9 @@
+import Link from "next/link";
 import { Container } from "@/components/layout/container";
 import { SectionHeading } from "@/components/ui/section-heading";
-import {
-  education,
-  experience,
-  interests,
-  skillGroups,
-} from "@/data/profile";
+import { interests, skillGroups } from "@/data/profile";
+import { educationRecords } from "@/data/education";
+import { experiences } from "@/data/experiences";
 import { siteConfig } from "@/config/site";
 
 export default function AboutPage() {
@@ -33,15 +31,26 @@ export default function AboutPage() {
             description="Master MBDS, cycle ingénieur ESTIA, mobilité internationale et bases scientifiques solides."
           />
           <ul className="space-y-5">
-            {education.map((item) => (
-              <li key={item.title}>
-                <p className="text-sm font-semibold text-zinc-900 dark:text-white">
-                  {item.title}
-                </p>
+            {educationRecords.slice(0, 3).map((record) => (
+              <li key={record.slug} className="space-y-1">
+                <div className="flex items-start justify-between gap-3">
+                  <p className="text-sm font-semibold text-zinc-900 dark:text-white">
+                    {record.title}
+                  </p>
+                  <span className="text-xs uppercase tracking-wide text-zinc-400">
+                    {record.date}
+                  </span>
+                </div>
                 <p className="text-sm text-zinc-600 dark:text-zinc-300">
-                  {item.organisation} · {item.period}
+                  {record.school}
                 </p>
-                <p className="mt-1 text-sm text-zinc-500">{item.summary}</p>
+                <p className="mt-1 text-sm text-zinc-500">{record.description}</p>
+                <Link
+                  href={`/education/${record.slug}`}
+                  className="inline-flex text-xs font-semibold text-cyan-600 transition hover:text-cyan-500 dark:text-cyan-300"
+                >
+                  Voir la fiche détaillée →
+                </Link>
               </li>
             ))}
           </ul>
@@ -53,15 +62,26 @@ export default function AboutPage() {
             description="De la conception d’API et pipelines ETL aux systèmes embarqués pour escape game."
           />
           <ul className="space-y-5">
-            {experience.map((item) => (
-              <li key={item.title}>
-                <p className="text-sm font-semibold text-zinc-900 dark:text-white">
-                  {item.title}
-                </p>
+            {experiences.slice(0, 2).map((item) => (
+              <li key={item.slug} className="space-y-1">
+                <div className="flex items-start justify-between gap-3">
+                  <p className="text-sm font-semibold text-zinc-900 dark:text-white">
+                    {item.title}
+                  </p>
+                  <span className="text-xs uppercase tracking-wide text-zinc-400">
+                    {item.date}
+                  </span>
+                </div>
                 <p className="text-sm text-zinc-600 dark:text-zinc-300">
-                  {item.organisation} · {item.period}
+                  {item.company}
                 </p>
-                <p className="mt-1 text-sm text-zinc-500">{item.summary}</p>
+                <p className="mt-1 text-sm text-zinc-500">{item.description}</p>
+                <Link
+                  href={`/experiences/${item.slug}`}
+                  className="inline-flex text-xs font-semibold text-cyan-600 transition hover:text-cyan-500 dark:text-cyan-300"
+                >
+                  Voir la fiche mission →
+                </Link>
               </li>
             ))}
           </ul>
