@@ -99,9 +99,9 @@ export function DetailPageLayout({
       )}
 
       <section className="space-y-6">
-        {sections.map((section) => (
+        {sections.map((section, index) => (
           <article
-            key={section.title}
+            key={`${section.title}-${index}`}
             className="space-y-3 rounded-3xl border border-zinc-200/70 bg-white/80 p-8 dark:border-zinc-800/70 dark:bg-zinc-950/70"
           >
             <h2 className="text-xl font-semibold text-zinc-950 dark:text-white">
