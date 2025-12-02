@@ -3,15 +3,16 @@ import { DetailPageLayout } from "@/components/content/detail-page";
 import { educationRecords } from "@/data/education";
 
 type EducationPageProps = {
-  params: { slug: string };
+  params: Promise<{ slug: string }>;
 };
 
 export function generateStaticParams() {
   return educationRecords.map((record) => ({ slug: record.slug }));
 }
 
-export default function EducationDetailPage({ params }: EducationPageProps) {
-  const record = educationRecords.find((item) => item.slug === params.slug);
+export default async function EducationDetailPage({ params }: EducationPageProps) {
+  const { slug } = await params;
+  const record = educationRecords.find((item) => item.slug === slug);
 
   if (!record) {
     notFound();

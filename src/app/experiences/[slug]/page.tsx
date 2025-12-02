@@ -3,15 +3,16 @@ import { DetailPageLayout } from "@/components/content/detail-page";
 import { experiences } from "@/data/experiences";
 
 type ExperiencePageProps = {
-  params: { slug: string };
+  params: Promise<{ slug: string }>;
 };
 
 export function generateStaticParams() {
   return experiences.map((experience) => ({ slug: experience.slug }));
 }
 
-export default function ExperienceDetailPage({ params }: ExperiencePageProps) {
-  const experience = experiences.find((item) => item.slug === params.slug);
+export default async function ExperienceDetailPage({ params }: ExperiencePageProps) {
+  const { slug } = await params;
+  const experience = experiences.find((item) => item.slug === slug);
 
   if (!experience) {
     notFound();
