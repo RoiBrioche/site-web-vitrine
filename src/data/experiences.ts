@@ -5,6 +5,7 @@ export const experiences: ExperienceContent[] = [
     title: "Stage – Ingénieur Développement & Data",
     slug: "orisha-healthcare-stage",
     company: "Orisha Healthcare",
+    type: "stage",
     description:
       "API unifiée, pipeline ETL, optimisation d’imports 1M+ lignes, API Django REST et documentation Sphinx/Swagger/ReDoc.",
     date: "Avril — Octobre 2025",
@@ -52,6 +53,7 @@ export const experiences: ExperienceContent[] = [
     title: "Stage – Système électronique escape game",
     slug: "escape-game-systeme",
     company: "Escape game",
+    type: "stage",
     description:
       "Architecture électronique de bout en bout, sourcing matériel et optimisation des coûts pour garantir fiabilité et immersion.",
     date: "2024",
@@ -93,6 +95,7 @@ export const experiences: ExperienceContent[] = [
     title: "Stage – ESTIA Recherche",
     slug: "estia-recherche",
     company: "Laboratoire ESTIA",
+    type: "stage",
     description:
       "Programmation Arduino (C++), communication série, conception et fabrication de boîtiers ainsi que gestion de nomenclature.",
     date: "2023",
