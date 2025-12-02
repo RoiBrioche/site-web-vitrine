@@ -49,6 +49,7 @@ export type ProjectContent = BaseContentItem & {
 
 export type ExperienceContent = BaseContentItem & {
   company: string;
+  type: "stage" | "student_job" | "professional";
   missions: string[];
   learnings: string[];
   outcomes: string[];
