@@ -5,10 +5,25 @@ import { FormEvent, useState } from "react";
 export function ContactForm() {
   const [status, setStatus] = useState<"idle" | "sent">("idle");
 
-  const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
+
+    const form = event.currentTarget;
+    const data = new FormData(form);
+
+    const res = await fetch("https://formspree.io/f/mqarljkg", {
+      method: "POST",
+      body: data,
+      headers: {
+        Accept: "application/json",
+      },
+    });
+
+  if (res.ok) {
     setStatus("sent");
-  };
+    form.reset();
+  }
+};
 
   return (
     <form
@@ -22,6 +37,7 @@ export function ContactForm() {
           </label>
           <input
             type="text"
+            name="name"
             required
             className="mt-1 w-full rounded-2xl border border-zinc-200/70 bg-transparent px-4 py-2 text-sm focus:border-zinc-900 focus:outline-none dark:border-zinc-700"
             placeholder="Ada Lovelace"
@@ -33,6 +49,7 @@ export function ContactForm() {
           </label>
           <input
             type="email"
+            name="email"
             required
             className="mt-1 w-full rounded-2xl border border-zinc-200/70 bg-transparent px-4 py-2 text-sm focus:border-zinc-900 focus:outline-none dark:border-zinc-700"
             placeholder="vous@domaine.fr"
@@ -44,6 +61,7 @@ export function ContactForm() {
           </label>
           <textarea
             rows={4}
+            name="message"
             className="mt-1 w-full rounded-2xl border border-zinc-200/70 bg-transparent px-4 py-2 text-sm focus:border-zinc-900 focus:outline-none dark:border-zinc-700"
             placeholder="Partagez votre idée..."
           />
@@ -56,8 +74,6 @@ export function ContactForm() {
         {status === "sent" ? "Message enregistré ✔︎" : "Envoyer"}
       </button>
       <p className="mt-3 text-xs text-zinc-500">
-        (Dépôt côté client uniquement. Connectez ce formulaire à Vercel Forms,
-        Formspree ou un Webhook maison pour l’industrialiser.)
       </p>
     </form>
   );
