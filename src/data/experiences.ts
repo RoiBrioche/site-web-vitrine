@@ -133,6 +133,154 @@ export const experiences: ExperienceContent[] = [
       "Collaboration avec des profils très divers (chercheurs, étudiants, techniciens).",
     ],
   },
+  {
+  title: "Employé de mise en rayon",
+  slug: "carrefour-ametzondo-rayon",
+  company: "Carrefour Ametzondo — Bayonne",
+  type: "student_job",
+  description:
+    "Mise en rayon, gestion du facing, réassort et contact client dans un hypermarché à forte affluence.",
+  date: "Novembre 2024 — Mars 2025",
+  technologies: [],
+  content:
+    "Travail étudiant effectué en parallèle de mes études. Une expérience orientée organisation, réactivité et service client.",
+  sections: [
+    {
+      title: "Rôle et responsabilités",
+      paragraphs: [
+        "Mise en rayon quotidienne et gestion du réassort.",
+        "Maintien de la qualité du facing et de la propreté du rayon.",
+        "Aide directe auprès des clients pour les orienter et répondre aux demandes.",
+      ],
+    },
+  ],
+  missions: [
+    "Gérer les flux de marchandises et la priorisation des tâches en période d’affluence.",
+    "Assurer la mise en place des promotions et des réassorts urgents.",
+    "Contribuer à un rayon organisé et attractif.",
+  ],
+  outcomes: [
+    "Rythme de travail soutenu maîtrisé.",
+    "Amélioration significative du contact client et de la communication.",
+    "Gestion du stress et des horaires variables.",
+  ],
+  learnings: [
+    "Rigueur et cadence de travail dans un environnement exigeant.",
+    "Esprit d’équipe et entraide entre services.",
+    "Relationnel client et gestion de situations imprévues.",
+  ],
+},
+{
+  title: "Serveur & Barman",
+  slug: "restaurant-st-pierre-lemans",
+  company: "Restaurant Le St Pierre — Le Mans",
+  type: "student_job",
+  description:
+    "Service en salle et au bar dans un restaurant traditionnel situé au cœur du Mans.",
+  date: "2023",
+  technologies: [],
+  content:
+    "Emploi étudiant axé sur le service, la rapidité d’exécution et le travail en équipe.",
+  sections: [
+    {
+      title: "Rôle et responsabilités",
+      paragraphs: [
+        "Service à table, prise de commande et encaissement.",
+        "Préparation de boissons au bar et gestion des flux en période de rush.",
+        "Contribution à l’ambiance générale de la salle.",
+      ],
+    },
+  ],
+  missions: [
+    "Assurer un service fluide et agréable malgré les pics d’affluence.",
+    "Maintenir une bonne coordination avec la cuisine.",
+    "Garantir une qualité constante dans l’accueil des clients.",
+  ],
+  outcomes: [
+    "Amélioration du contact client et du sens du service.",
+    "Excellente gestion du stress en environnement rapide.",
+    "Renforcement du travail d’équipe.",
+  ],
+  learnings: [
+    "Communication claire et efficace.",
+    "Priorisation des tâches dans des situations dynamiques.",
+    "Autonomie dans un cadre à forte charge opérationnelle.",
+  ],
+},
+{
+  title: "Serveur saisonnier",
+  slug: "vercland-ccgpf",
+  company: "Village vacances CCGPF — Vercland (Haute-Savoie)",
+  type: "student_job",
+  description:
+    "Service en restauration dans un centre de vacances d’altitude, en contact direct avec les familles et groupes.",
+  date: "2023",
+  technologies: [],
+  content:
+    "Expérience saisonnière demandant polyvalence, adaptation et gestion des services en grande capacité.",
+  sections: [
+    {
+      title: "Rôle et responsabilités",
+      paragraphs: [
+        "Service en continu matin/midi/soir selon les périodes.",
+        "Préparation et mise en place des buffets et salles.",
+        "Collaboration régulière avec l’équipe d’animation et d’hébergement.",
+      ],
+    },
+  ],
+  missions: [
+    "Gérer des services avec un volume important de convives.",
+    "Garantir la fluidité entre salle, cuisine et logistique.",
+    "Contribuer à l’accueil global des vacanciers.",
+  ],
+  outcomes: [
+    "Sens du service renforcé.",
+    "Maîtrise de la communication en équipe.",
+    "Adaptation rapide à de nouveaux environnements de travail.",
+  ],
+  learnings: [
+    "Résilience et gestion de la fatigue saisonnière.",
+    "Organisation quotidienne dans un rythme soutenu.",
+    "Polyvalence entre différentes responsabilités.",
+  ],
+},
+{
+  title: "Professeur particulier en mathématiques",
+  slug: "cours-particuliers-maths",
+  company: "Indépendant",
+  type: "student_job",
+  description:
+    "Cours particulier niveau collège et lycée pour accompagner plusieurs élèves en mathématiques.",
+  date: "2022",
+  technologies: [],
+  content:
+    "Accompagnement pédagogique individuel : diagnostic, explication des notions clés et suivi de progression.",
+  sections: [
+    {
+      title: "Rôle et responsabilités",
+      paragraphs: [
+        "Identifier les difficultés de chaque élève et ajuster les méthodes.",
+        "Créer des exercices ciblés pour consolider les acquis.",
+        "Suivre les progrès sur le long terme.",
+      ],
+    },
+  ],
+  missions: [
+    "Construire des séances structurées et adaptées.",
+    "Expliquer des concepts complexes de manière accessible.",
+    "Encourager la confiance des élèves et leur autonomie.",
+  ],
+  outcomes: [
+    "Amélioration visible des résultats scolaires.",
+    "Relation de confiance avec les familles.",
+    "Méthodologie pédagogique solide.",
+  ],
+  learnings: [
+    "Pédagogie, patience et écoute active.",
+    "Capacité à vulgariser et structurer une progression.",
+    "Compréhension fine de la motivation d’un apprenant.",
+  ],
+},
 ];
 
 export function getExperienceBySlug(slug: string) {
