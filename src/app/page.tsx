@@ -24,11 +24,7 @@ export default function Home() {
             {siteConfig.shortBio}
           </p>
           <p className="text-sm text-zinc-500 dark:text-zinc-400">
-            Intérêt pour la data, l&apos;intelligence artificielle, le
-            développement logiciel et les systèmes embarqués. Goût pour les
-            solutions techniques robustes : API, pipelines de données,
-            automatisations et outils analytiques. Qualités : innovation,
-            autonomie, rigueur, curiosité, polyvalence.
+            Je conçois des outils et systèmes qui exploitent pleinement les données et l’intelligence artificielle pour améliorer les processus et automatiser les tâches critiques. Rigueur, autonomie et créativité guident mon travail au quotidien.
           </p>
           <div className="flex flex-wrap gap-3">
           <Link
