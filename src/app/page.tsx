@@ -107,16 +107,14 @@ export default function Home() {
           <SectionHeading
             eyebrow="Approche"
             title="Autonomie, qualité de code et documentation"
-            description="Du cadrage à la documentation, chaque lot inclut pipelines, APIs et tests alignés sur les usages data."
+            description="De la conception à la documentation, je veille à ce que chaque projet soit structuré, testé et aligné avec les besoins data."
           />
         </div>
         <div className="space-y-4 text-sm text-zinc-600 dark:text-zinc-300">
-          <p>
-            • API centralisée et pipeline ETL (Orisha Healthcare) · •
-            Optimisation d’imports massifs via buffers et COPY PostgreSQL · •
-            Architecture électronique fiable pour escape game · • Programmation
-            Arduino et CAO en laboratoire ESTIA.
-          </p>
+          <p>• Déploiement d’une API centralisée et d’un pipeline ETL pour Orisha Healthcare</p>
+          <p>• Optimisation d’imports massifs avec PostgreSQL</p>
+          <p>• Conception d’architectures électroniques fiables pour escape games</p>
+          <p>• Développement Arduino et CAO en laboratoire ESTIA</p>
           <Link
             href="/about"
             className="inline-flex items-center text-sm font-semibold text-cyan-600 transition hover:text-cyan-500 dark:text-cyan-300"
@@ -129,30 +127,26 @@ export default function Home() {
       <section className="rounded-3xl border border-zinc-200/70 bg-gradient-to-r from-slate-900 to-zinc-900 p-10 text-white dark:from-zinc-900 dark:to-black">
         <div className="space-y-4">
           <p className="text-xs uppercase tracking-[0.4em] text-white/60">
-            Parlons data & IA
+            Parlons développement & données
           </p>
+
           <h2 className="text-3xl font-semibold">
-            Vous préparez un stage, un projet data ou une mission IA ?
+            Vous cherchez un développeur fullstack / IA pour un projet ou un poste ?
           </h2>
+
           <p className="text-sm text-white/80">
-            Disponible pour concevoir des APIs, pipelines de données,
-            automatisations ou outils analytiques documentés.
+            Disponible pour concevoir des applications web, APIs, pipelines de données,
+            automatisations ou outils intelligents documentés.
           </p>
+
           <div className="flex flex-wrap gap-3">
             <Link
               href="/contact"
-              className="
-                rounded-full
-                px-6 py-3 text-sm font-semibold
-                border border-transparent
-                transition
-                bg-white !text-zinc-900
-                hover:bg-zinc-100 hover:border-zinc-900
-                dark:bg-white dark:!text-zinc-900 dark:hover:bg-zinc-200
-              "
+              className="rounded-full px-6 py-3 text-sm font-semibold border border-transparent transition bg-white !text-zinc-900 hover:bg-zinc-100 hover:border-zinc-900 dark:bg-white dark:!text-zinc-900 dark:hover:bg-zinc-200"
             >
               Planifier un échange
             </Link>
+
             <a
               href={siteConfig.links.linkedin}
               target="_blank"
@@ -164,6 +158,7 @@ export default function Home() {
           </div>
         </div>
       </section>
+
     </Container>
   );
 }
