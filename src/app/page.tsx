@@ -90,9 +90,9 @@ export default function Home() {
 
       <section id="projects" className="space-y-10">
         <SectionHeading
-          eyebrow="Projets universitaires & techniques"
-          title="Des cas concrets autour de la data et de l’IA"
-          description="Pipeline de données, NLP et automatisation par LLM : aperçu des travaux réalisés dans le cadre du double cursus ESTIA · MBDS."
+          eyebrow="Projets personnels & compétences"
+          title="Exploration de solutions techniques et innovations"
+          description="Projets personnels mettant en pratique les compétences acquises durant mon double cursus ESTIA · MBDS, allant du développement logiciel à l'analyse de données, en passant par l'expérimentation technique et l'innovation."
         />
         <div className="grid gap-6 md:grid-cols-2">
           {projects.map((project) => (
@@ -100,6 +100,7 @@ export default function Home() {
           ))}
         </div>
       </section>
+
 
       <section className="grid gap-10 rounded-3xl border border-zinc-200/70 bg-white/80 p-10 dark:border-zinc-800/70 dark:bg-zinc-950/70 md:grid-cols-2">
         <div className="space-y-3">
