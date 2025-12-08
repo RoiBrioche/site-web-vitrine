@@ -127,8 +127,10 @@ export default function AboutPage() {
             Besoin d’un profil hybride data, IA et développement logiciel ?
           </h2>
           <p className="text-sm text-white/80">
-            Discutons de vos API, pipelines, automatisations ou expérimentations
-            IA. Je réponds rapidement via email ou téléphone.
+            Je suis disponible pour un premier rôle en développement logiciel, data ou IA, et ouvert
+            également à des missions techniques ponctuelles. J’interviens sur la conception
+            d’APIs, le développement d’outils, l’ingénierie de données et les automatisations
+            adaptées aux besoins des équipes produit.
           </p>
           <div className="flex flex-wrap gap-3">
             <a
