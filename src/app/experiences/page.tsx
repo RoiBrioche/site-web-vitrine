@@ -81,16 +81,18 @@ export default function ExperiencesPage() {
               </motion.div>
             ))
           ) : (
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              className="col-span-full rounded-3xl border border-zinc-200/70 bg-white/80 p-12 text-center dark:border-zinc-800/70 dark:bg-zinc-950/70"
-            >
-              <p className="text-zinc-600 dark:text-zinc-400">
-                Aucune expérience dans cette catégorie pour le moment.
-              </p>
-            </motion.div>
-          )}
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            className="col-span-full rounded-3xl border border-zinc-200/70 bg-white/80 p-12 text-center dark:border-zinc-800/70 dark:bg-zinc-950/70"
+          >
+            <p className="text-zinc-600 dark:text-zinc-400">
+              {activeCategory === "professional"
+                ? "Pas encore d’expérience professionnelle… Soyez les premiers à m’en confier une 🚀"
+                : "Aucune expérience dans cette catégorie pour le moment."}
+            </p>
+          </motion.div>
+        )}
         </motion.div>
       </AnimatePresence>
     </Container>
