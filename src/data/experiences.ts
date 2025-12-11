@@ -2,52 +2,72 @@ import { ExperienceContent } from "./content-model";
 
 export const experiences: ExperienceContent[] = [
   {
-    title: "Stage – Ingénieur Développement & Data",
-    slug: "orisha-healthcare-stage",
-    company: "Orisha Healthcare",
-    type: "stage",
-    description:
-      "API unifiée, pipeline ETL, optimisation d’imports 1M+ lignes, API Django REST et documentation Sphinx/Swagger/ReDoc.",
-    date: "Avril — Octobre 2025",
-    technologies: [
+    "title": "Stage – Développeur Backend & Data",
+    "slug": "orisha-healthcare-stage",
+    "company": "Orisha Healthcare",
+    "type": "stage",
+    "description": "Développement d’un middleware dédié aux nomenclatures médicales (LPP, CCAM, NGAP, NABM), conception du modèle de données complet et réalisation d’APIs Django REST permettant l’ingestion, la consultation et la gestion des droits d’accès.",
+    "date": "Avril — Octobre 2025",
+    "technologies": [
       "Python",
-      "Django REST",
+      "Django",
+      "Django REST Framework",
       "PostgreSQL",
-      "Celery",
       "Docker",
+      "GitHub Actions (concepts)",
+      "AJAX",
+      "SSE / WebSocket"
     ],
-    content:
-      "Mission cœur produit : moderniser la collecte de données, exposer de nouvelles APIs et documenter chaque composant pour accélérer l’onboarding des équipes.",
-    sections: [
+    "content": "Mission orientée intégration et structuration des données : modélisation complète des nomenclatures médicales, création d’un middleware d’accès, développement d’APIs sécurisées et mise en place d’un système d’insertion optimisé pour traiter des volumes importants, avec suivi temps réel du traitement côté front.",
+    "sections": [
       {
-        title: "Missions générales",
-        paragraphs: [
-          "Refonte d’une API monolithique vers des endpoints modulaires sécurisés et versionnés.",
-          "Mise en place d’un pipeline ETL résilient pour traiter des imports massifs (jusqu’à 1 million de lignes par charge).",
-        ],
+        "title": "Missions générales",
+        "paragraphs": [
+          "Étude des nomenclatures de facturation de l’Assurance Maladie (LPP, CCAM, NGAP, NABM) afin de comprendre leur structure et leurs règles fonctionnelles.",
+          "Modélisation complète en base de données : initialement seul le modèle de l’annexe 2 existait. J’ai conçu et normalisé l’ensemble des tables nécessaires pour supporter toutes les nomenclatures.",
+          "Développement des endpoints Django REST pour exposer les données, permettre leur mise à jour et assurer la cohérence inter-nomenclatures.",
+          "Intégration puis extension du service d’authentification avec une gestion des autorisations par nomenclature pour chaque utilisateur.",
+          "Mise en place des processus de souscription au logiciel, incluant la gestion des droits et la configuration initiale des accès."
+        ]
       },
       {
-        title: "Approche narrative",
-        paragraphs: [
-          "J’ai structuré la mission comme un produit : cadrage, prototypes, documentation, diffusion des bonnes pratiques (performances, SLOs).",
-        ],
+        "title": "Optimisation des performances",
+        "paragraphs": [
+          "Certaines nomenclatures comportant des fichiers particulièrement volumineux, j’ai conçu différentes stratégies d’insertion afin de maintenir une expérience utilisateur fluide : buffers d’insertion, opérations batch, puis import massif via `COPY` PostgreSQL.",
+          "Conception d’un suiveur d’état en temps réel sur la page de demande d’ajout de version : mise à jour dynamique de la progression grâce à du JavaScript, de l’AJAX et un canal SSE/WebSocket."
+        ]
       },
+      {
+        "title": "Approche narrative",
+        "paragraphs": [
+          "J’ai abordé ce projet comme la construction d’un middleware métier complet : analyse des règles de facturation, choix de modélisation, structuration des APIs et documentation continue.",
+          "Chaque composant (modèle de données, API, pipeline d’import, gestion des droits) a été conçu pour être repris facilement par les équipes QA et support.",
+          "Je me suis également familiarisé avec les concepts de GitHub Actions afin d’optimiser certaines étapes du workflow sans pour autant mettre en place une chaîne CI/CD complète."
+        ]
+      }
     ],
-    missions: [
-      "Concevoir et développer les endpoints REST critiques (authentification, synchronisation catalogue, reporting).",
-      "Optimiser les imports via COPY PostgreSQL, batchs et files Celery.",
-      "Structurer la documentation Sphinx/Swagger/ReDoc pour faciliter la reprise par l’équipe QA et le support.",
+    "missions": [
+      "Modéliser les nomenclatures LPP, CCAM, NGAP et NABM en base de données à partir de leurs structures officielles.",
+      "Développer les endpoints Django REST exposant les nomenclatures, leurs versions et leurs règles d’usage.",
+      "Étendre le service d’authentification pour gérer des droits par nomenclature et sécuriser les accès aux endpoints.",
+      "Mettre en place les workflows de souscription utilisateur et de configuration initiale des droits.",
+      "Concevoir un pipeline d’insertion optimisé (buffers, batchs, PostgreSQL COPY).",
+      "Créer un module de suivi temps réel de l’import via AJAX + SSE/WebSocket."
     ],
-    outcomes: [
-      "Temps d’import divisé par 3 grâce aux buffers et à l’optimisation SQL.",
-      "Monitoring fiable (logs + métriques) pour comprendre rapidement un incident.",
-      "Documentation prête pour une homologation interne.",
+    "outcomes": [
+      "Un middleware complet, capable d’ingérer, structurer et exposer l’ensemble des nomenclatures de facturation médicale.",
+      "Ingestion fiable et performante, adaptée aux très gros volumes de données.",
+      "Interface utilisateur enrichie avec un suivi d’import en temps réel.",
+      "Sécurisation renforcée des APIs grâce à un modèle d’autorisation par nomenclature.",
+      "Documentation technique facilitant la reprise par les équipes internes."
     ],
-    learnings: [
-      "Dialogue constant avec les équipes métier pour cadrer les périmètres sensibles.",
-      "Importance de la traçabilité (logs corrélés + IDs fonctionnels).",
-      "Organisation agile : démonstrations hebdo et feedbacks immédiats intégrés au backlog.",
-    ],
+    "learnings": [
+      "Compréhension approfondie des nomenclatures de facturation de l’Assurance Maladie et de leurs règles métier.",
+      "Maîtrise avancée de Django REST, du design d’APIs et de la structuration d’un middleware.",
+      "Optimisation de traitements massifs sous PostgreSQL et bonnes pratiques de performance.",
+      "Mise en œuvre de communications temps réel (AJAX, SSE / WebSocket).",
+      "Familiarisation avec GitHub Actions et les workflows d’intégration."
+    ]
   },
   {
     title: "Stage – Système électronique escape game",
