@@ -112,46 +112,52 @@ export const experiences: ExperienceContent[] = [
     ],
   },
   {
-    title: "Stage – ESTIA Recherche",
-    slug: "estia-recherche",
-    company: "Laboratoire ESTIA",
-    type: "stage",
-    description:
-      "Programmation Arduino (C++), communication série, conception et fabrication de boîtiers ainsi que gestion de nomenclature.",
-    date: "2023",
-    technologies: ["Arduino", "C++", "SolidWorks", "Git", "Lab tooling"],
-    content:
-      "Stage laboratoire mêlant prototypage rapide, documentation scientifique et rédaction de protocoles de test.",
-    sections: [
+    "title": "Stage – ESTIA Recherche",
+    "slug": "estia-recherche",
+    "company": "Laboratoire ESTIA",
+    "type": "stage",
+    "description": "Prototypage Arduino et communication série avec Raspberry Pi pour piloter des afficheurs mécaniques et électroniques, étude de l’impact sur le comportement de consommation électrique.",
+    "date": "2023",
+    "technologies": ["Arduino", "C++", "Raspberry Pi", "SolidWorks / Onshape", "Git", "Lab tooling"],
+    "content": "Stage orienté prototypage et recherche scientifique : pilotage de cartes Arduino, communication série avec un Raspberry Pi, conception de boîtiers et étude d’impact comportemental sur la consommation énergétique.",
+    "sections": [
       {
-        title: "Missions générales",
-        paragraphs: [
-          "Développer les prototypes électroniques pour des bancs de tests de capteurs.",
-          "Documenter chaque itération pour permettre aux chercheurs de reproduire les expériences.",
-        ],
+        "title": "Missions générales",
+        "paragraphs": [
+          "Développement de prototypes électroniques pour piloter des afficheurs mécaniques et écrans via Arduino et communication série avec un Raspberry Pi.",
+          "Étude et mise en place de la communication série permettant à un Raspberry Pi de contrôler plusieurs cartes Arduino simultanément.",
+          "Conception et réalisation du carter du boîtier d’afficheur via CAO (Onshape) et étude économique des matériaux et fournisseurs.",
+          "Documentation scientifique et protocoles de tests pour assurer la reproductibilité et la traçabilité des expériences."
+        ]
       },
       {
-        title: "Approche narrative",
-        paragraphs: [
-          "Focus sur la rigueur scientifique : traçabilité, reproductibilité, communication claire auprès d’équipes pluridisciplinaires.",
-        ],
-      },
+        "title": "Approche narrative",
+        "paragraphs": [
+          "Projet orienté recherche appliquée : l’objectif était de tester l’impact d’afficheurs mécaniques ou électroniques sur la consommation électrique des individus face à la production d’énergie solaire locale.",
+          "Chaque prototype a été conçu pour être modulable et reproductible afin de capitaliser les retours pour les futures expérimentations.",
+          "Focus sur la rigueur scientifique : traçabilité, reproductibilité, communication claire avec des équipes pluridisciplinaires."
+        ]
+      }
     ],
-    missions: [
-      "Programmer les microcontrôleurs (Arduino/C++) et mettre en place une communication série fiable.",
-      "Concevoir les boîtiers via CAO et organiser la fabrication rapide.",
-      "Structurer la nomenclature et les fiches de tests pour les futures cohortes d’étudiants.",
+    "missions": [
+      "Programmer les microcontrôleurs Arduino pour piloter moteurs et afficheurs selon les données de production solaire.",
+      "Implémenter une communication série fiable entre un Raspberry Pi et plusieurs cartes Arduino pour centraliser le contrôle des afficheurs.",
+      "Concevoir et réaliser le carter du boîtier de l’afficheur via CAO (Onshape), avec étude de coûts et choix des matériaux.",
+      "Documenter le protocole scientifique, les tests et les résultats pour assurer la reproductibilité des expériences."
     ],
-    outcomes: [
-      "Bancs de test opérationnels pour les équipes recherche.",
-      "Réduction du temps d’assemblage grâce à une documentation claire.",
-      "Capitalisation des retours pour les promotions suivantes.",
+    "outcomes": [
+      "Prototypes fonctionnels pour piloter plusieurs afficheurs via un Raspberry Pi.",
+      "Carter d’afficheur conçu et optimisé pour fabrication économique.",
+      "Documentation scientifique complète et protocoles de tests reproductibles.",
+      "Capacité à tester et observer l’impact de différentes interfaces sur le comportement de consommation électrique."
     ],
-    learnings: [
-      "Méthodologie scientifique appliquée au développement.",
-      "Importance d’une documentation neutre et reproductible.",
-      "Collaboration avec des profils très divers (chercheurs, étudiants, techniciens).",
-    ],
+    "learnings": [
+      "Maîtrise du prototypage électronique et programmation Arduino/C++ pour la commande de moteurs et afficheurs.",
+      "Conception CAO et analyse de coût pour la fabrication de boîtiers physiques.",
+      "Mise en place de communication série entre Raspberry Pi et Arduino.",
+      "Méthodologie scientifique appliquée : rigueur, traçabilité et documentation pour expérimentations reproductibles.",
+      "Collaboration avec des profils divers : chercheurs, étudiants, techniciens."
+    ]
   },
   {
   title: "Employé de mise en rayon",
