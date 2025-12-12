@@ -70,46 +70,103 @@ export const experiences: ExperienceContent[] = [
     ]
   },
   {
-    title: "Stage – Système électronique escape game",
-    slug: "escape-game-systeme",
-    company: "Escape game",
-    type: "stage",
-    description:
-      "Architecture électronique de bout en bout, sourcing matériel et optimisation des coûts pour garantir fiabilité et immersion.",
-    date: "2024",
-    technologies: ["Arduino", "C++", "I2C", "Impression 3D", "CAD"],
-    content:
-      "Mission hardware / software : concevoir des coffres interactifs et un système de scénarisation fiable pour une salle d’escape game.",
-    sections: [
+    "title": "Stage – Systèmes électroniques pour escape game",
+    "slug": "escape-game-systeme",
+    "company": "Prestataire pour un projet Opération Escape destiné à la Cité des Mémoires (Hendaye)",
+    "type": "stage",
+    "description": "Conception complète de systèmes électroniques interactifs embarqués pour enrichir les énigmes d’une salle d’escape game.",
+    "date": "2024",
+    "technologies": ["Arduino", "C++", "RFID", "I2C", "Capteurs mécaniques"],
+    "content": "Développement d’interfaces physiques immersives : capteurs, contrôleurs, communication I2C, scénarisation, contrôle distant depuis la salle du game master et automatisation du reset des énigmes.",
+    "sections": [
       {
-        title: "Missions générales",
-        paragraphs: [
-          "Conception des schémas électroniques, définition des protocoles de communication et intégration des capteurs.",
-          "Pilotage de la chaîne complète : choix des composants, prototypage, tests utilisateurs, documentation.",
-        ],
+        "title": "Contexte du projet",
+        "paragraphs": [
+          "La salle d’escape game disposait d’un ensemble d’énigmes nécessitant une modernisation via des systèmes électroniques dissimulés dans le décor afin de renforcer l’immersion et générer des effets ‘Waouh’.",
+          "Les enjeux incluaient : fiabilité sur des sessions successives de 60 minutes, intégration invisible dans le décor, maintenance simple pour les game masters et coûts matériels optimisés."
+        ]
       },
       {
-        title: "Approche narrative",
-        paragraphs: [
-          "J’ai présenté chaque fonctionnalité comme une expérience joueur : storytelling, déclencheurs, signaux visuels et auditifs.",
-        ],
+        "title": "Contexte institutionnel",
+        "paragraphs": [
+          "Le projet s’inscrivait dans une chaîne de prestation : j’effectuais mon stage au sein d’une TPE missionnée par Opération Escape, elle-même prestataire pour la Cité des Mémoires d’Hendaye dans le cadre de la modernisation de leur parcours scénographique et de leur escape game.",
+          "La Cité des Mémoires est un espace muséal dédié à la transmission du patrimoine local. Les systèmes électroniques que j’ai développés ou dont j’ai conçu les prototypes ont été intégrés à plusieurs de leurs énigmes immersives.",
+          "Les photos présentées ci-dessous illustrent uniquement le lieu d’accueil final du projet, afin de contextualiser l’environnement dans lequel les énigmes ont été déployées."
+        ]
       },
+      // {
+      //   "title": "Galerie photo",
+      //   "paragraphs": [
+      //     "Quelques visuels du lieu final d’intégration du projet (photos génériques du site, utilisées à titre de contextualisation)."
+      //   ],
+      //   "images": [
+      //   {
+      //     "src": "/images/escape-game/cite-memoires-1.jpg",
+      //     "alt": "Entrée de la Cité des Mémoires à Hendaye"
+      //   },
+      //   {
+      //     "src": "/images/escape-game/cite-memoires-2.jpg",
+      //     "alt": "Salle immersive de la Cité des Mémoires"
+      //   },
+      //   {
+      //     "src": "/images/escape-game/escape-game-room.jpg",
+      //     "alt": "Espace de jeu où les systèmes électroniques ont été intégrés"
+      //   }
+      // ]
+      // },
+      {
+        "title": "Défis techniques et contraintes matérielles",
+        "paragraphs": [
+          "Les premières versions des énigmes électroniques ont été réalisées en prototypage pur : câblage manuel, soudures réalisées à la main et intégration dans des espaces décoratifs très contraints. Cette approche a permis de valider le fonctionnement logiciel et la logique de jeu, mais a mis en évidence des limites de fiabilité liées au câblage et aux connectiques lors d’un usage prolongé et répété.",
+          "Cette étape a été essentielle pour distinguer la phase de conception/validation logique de la nécessité d'une production plus robuste lorsqu’un système doit fonctionner en continu dans un environnement public."
+        ]
+      },
+      {
+        "title": "Missions générales",
+        "paragraphs": [
+          "Conception des architectures électroniques (schémas, choix des capteurs, microcontrôleurs, protocoles).",
+          "Développement du firmware Arduino en C++ pour gérer événements, priorités, sécurités et retour d’état.",
+          "Implémentation de capteurs variés : systèmes RFID, interrupteurs mécaniques dissimulés (piano), électroaimants, capteurs de position.",
+          "Mise en place d’un contrôle à distance depuis la salle du game master (monitoring, déclencheurs, bypass si besoin).",
+          "Définition d’un processus complet de réinitialisation des énigmes pour préparer efficacement chaque nouvelle session.",
+          "Documentation technique, nomenclature matérielle, et procédures de maintenance."
+        ]
+      },
+      {
+        "title": "Collaboration et industrialisation",
+        "paragraphs": [
+          "Après validation des prototypes fonctionnels, certaines énigmes – notamment celles basées sur des lecteurs RFID multiples – ont nécessité une production plus robuste que celle réalisable avec le matériel disponible sur site. La fiabilité recherchée impliquait des supports mécaniques précis, un câblage propre et des connectiques protégées.",
+          "Un spécialiste externe équipé d’outils adaptés (impression 3D, câblage professionnel) a repris mes prototypes pour les industrialiser tout en conservant la logique fonctionnelle et les scénarios que j’avais développés. Ce travail collaboratif a permis d’atteindre une fiabilité optimale pour une utilisation en continu dans une salle d’escape game.",
+          "Cette expérience a renforcé ma compréhension du cycle complet d’un système embarqué : du prototype à l’intégration professionnelle."
+        ]
+      },
+      {
+        "title": "Approche narrative",
+        "paragraphs": [
+          "Chaque système a été conçu comme un élément de jeu : interaction fluide, rétroactions visuelles/sonores, cohérence de la narration et intégration parfaite dans le décor.",
+          "Le design électronique a été guidé par les contraintes d’immersion : invisibilité du matériel, résistance physique, fiabilité en boucle continue."
+        ]
+      }
     ],
-    missions: [
-      "Développer le firmware Arduino en C++ (gestion des entrées, priorisation des événements, sécurité).",
-      "Intégrer les capteurs (magnétiques, RFID, pression) avec un bus I2C robuste.",
-      "Documenter la maintenance (plans, nomenclature, procédures de test).",
+    "missions": [
+      "Développer les contrôleurs Arduino avec gestion des séquences d’événements (ex. clavier piano dissimulé, séquences à reproduire).",
+      "Intégrer des lecteurs et tags RFID pour activer des éléments cachés selon la position exacte d’objets de décor.",
+      "Mettre en place une communication I2C robuste pour interconnecter modules et capteurs.",
+      "Créer un outil de contrôle à distance depuis le poste game master permettant d’activer, superviser ou réinitialiser les énigmes.",
+      "Définir la procédure complète de reset automatique/manuel entre les sessions."
     ],
-    outcomes: [
-      "Réduction des coûts matériels (~20 %) en optimisant la nomenclature.",
-      "Système stable pour des sessions de 60 minutes sans recalibrage.",
-      "Transfert de connaissances réussi vers l’équipe d’animation.",
+    "outcomes": [
+      "Systèmes opérationnels, stables et utilisés depuis plus d’un an après leur mise en service.",
+      "Expérience joueur nettement enrichie grâce à des interactions physiques variées (RFID, interrupteurs cachés, électro-aimants).",
+      "Maintenance facilitée grâce à la documentation et au poste de contrôle game master."
     ],
-    learnings: [
-      "Relation client : vulgariser l’électronique pour co-concevoir les puzzles.",
-      "Gestion des risques matériels (disponibilité composants, délais).",
-      "Monitoring en conditions réelles et boucle rapide d’amélioration.",
-    ],
+    "learnings": [
+      "Conception de systèmes embarqués fiables pour un usage répété en conditions réelles.",
+      "Différenciation concrète entre prototype fonctionnel et produit final industrialisé.",
+      "Collaboration avec des professionnels du spectacle immersif (game designers, scénographes).",
+      "Intégration électronique invisible dans des environnements décoratifs contraints.",
+      "Gestion des risques matériels et optimisation des coûts."
+    ]
   },
   {
     "title": "Stage – ESTIA Recherche",
