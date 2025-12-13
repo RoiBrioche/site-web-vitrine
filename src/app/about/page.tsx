@@ -16,10 +16,11 @@ export default function AboutPage() {
           description="Double diplômé ESTIA · Master MBDS (Big Data & Systèmes Intelligents), avec un fort intérêt pour la data, l’IA, le développement logiciel et les systèmes embarqués."
         />
         <p className="text-base text-zinc-600 dark:text-zinc-300">
-          Je recherche des missions où livrer des API robustes, des pipelines de
-          données et des automatisations documentées. J’apprécie les solutions
-          techniques complètes : ingestion, traitement, exposition REST ainsi que
-          la mise en place d’outils analytiques pour les équipes produit.
+          Ingénieur double diplômé, j’aime concevoir des solutions complètes : du développement
+          d’applications et d’APIs à la gestion de données, en passant par l’automatisation et
+          l’intégration de services. J’accorde une attention particulière à la fiabilité, à la
+          documentation et à la qualité de l’expérience développeur.
+
         </p>
       </section>
 
@@ -87,7 +88,12 @@ export default function AboutPage() {
           </ul>
         </div>
       </section>
-
+      
+        <SectionHeading
+          eyebrow="Compétences"
+          title="Un profil polyvalent orienté développement et données"
+          description="Maîtrise des outils modernes du développement logiciel, de l’ingénierie data et de l’automatisation."
+        />
       <section className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
         {skillGroups.map((group) => (
           <SkillColumn key={group.title} title={group.title} items={group.items} />
@@ -98,7 +104,7 @@ export default function AboutPage() {
         <SectionHeading
           eyebrow="Centres d’intérêt"
           title="Équilibre personnel"
-          description="Arts du cirque (5 ans de représentations), histoire, cuisine, cyclisme et course à pied."
+          description="Activités artistiques et sportives qui nourrissent ma créativité et mon équilibre : arts du cirque, histoire, cuisine, cyclisme et course à pied."
         />
         <ul className="mt-6 flex flex-wrap gap-3 text-sm text-zinc-600 dark:text-zinc-300">
           {interests.map((interest) => (
@@ -121,8 +127,10 @@ export default function AboutPage() {
             Besoin d’un profil hybride data, IA et développement logiciel ?
           </h2>
           <p className="text-sm text-white/80">
-            Discutons de vos API, pipelines, automatisations ou expérimentations
-            IA. Je réponds rapidement via email ou téléphone.
+            Je suis disponible pour un premier rôle en développement logiciel, data ou IA, et ouvert
+            également à des missions techniques ponctuelles. J’interviens sur la conception
+            d’APIs, le développement d’outils, l’ingénierie de données et les automatisations
+            adaptées aux besoins des équipes produit.
           </p>
           <div className="flex flex-wrap gap-3">
             <a

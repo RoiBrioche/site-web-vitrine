@@ -18,8 +18,9 @@ export const skillGroups: SkillGroup[] = [
 
 export const interests = [
   "Arts du cirque (représentations)",
+  "Cyclisme & course à pied",
+  "Échec (900 elo)",
   "Histoire",
   "Cuisine",
-  "Cyclisme & course à pied",
 ];
 

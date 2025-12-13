@@ -4,7 +4,7 @@ export const siteConfig = {
   tagline:
     "Ingénieur ESTIA & Master MBDS, spécialisé en data, IA, développement logiciel et systèmes embarqués.",
   shortBio:
-    "Intérêt marqué pour les pipelines de données, les APIs robustes, les automatisations et les outils analytiques documentés.",
+    "J’aime transformer des données complexes en solutions concrètes, automatiser des processus et construire des systèmes logiciels fiables et performants.",
   location: "Localisation à préciser",
   email: "brieuc.mandin.pro@gmail.com",
   phone: "07 69 82 49 71",
