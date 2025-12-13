@@ -35,6 +35,13 @@ export default async function ExperienceDetailPage({ params }: ExperiencePagePro
     },
   ];
 
+  const gallery = (experience.images ?? []).map(img => ({
+    src: img.src,
+    alt: img.alt,
+    width: img.width || 800,
+    height: img.height || 600
+  }));
+
   return (
     <DetailPageLayout
       eyebrow="Expérience professionnelle"
@@ -44,6 +51,7 @@ export default async function ExperienceDetailPage({ params }: ExperiencePagePro
       tags={experience.technologies}
       summary={experience.content}
       sections={sections}
+      gallery={gallery}
       backHref="/experiences"
       backLabel="Retour aux expériences"
     />
