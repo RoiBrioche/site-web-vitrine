@@ -231,72 +231,81 @@ export const projects: ProjectContent[] = [
     ],
   },
   {
-    title: "Veille technique & projets LLM",
-    slug: "veille-technique-llm",
+    title: "Veille et explorations autour de l’IA",
+    slug: "veille-explorations-ia",
     description:
-      "Expérimentations avec des LLM et de l’IA générative pour automatiser du code et produire des scripts analytiques.",
-    date: "2023 — 2025",
-    technologies: ["OpenAI", "LangChain", "Python", "TypeScript", "Supabase"],
+      "Veille technologique continue et expérimentations ciblées autour de l’IA, des LLM et de leurs usages concrets en développement.",
+    date: "Depuis 2023",
+    technologies: [
+      "LLM (OpenAI, Claude)",
+      "Outils IA pour développeurs (Cursor, Windsurf)",
+      "Python",
+      "TypeScript",
+      "Bases vectorielles (concepts)",
+    ],
     content:
-      "Travaux personnels autour des LLM : automatisation de scripts, agents pour générer du code boilerplate, benchmarks internes.",
+      "Démarche personnelle de veille et d’exploration visant à comprendre les usages réels de l’IA et des LLM dans le développement logiciel, au-delà de l’effet de mode.",
     sections: [
       {
-        title: "Présentation générale",
+        title: "Démarche de veille",
         paragraphs: [
-          "Je construis des micro-outils pour accélérer la génération de scripts analytiques ou de documentation technique.",
-          "Les expérimentations couvrent LangChain, les APIs OpenAI, la vectorisation (Supabase / Postgres) et l’évaluation qualitative.",
+          "Je mène une veille continue via des articles techniques, des documentations, des vidéos et des retours d’expérience de la communauté.",
+          "L’objectif n’est pas d’explorer exhaustivement chaque outil, mais d’identifier les tendances crédibles et les usages réellement applicables.",
         ],
       },
       {
-        title: "Rôle pédagogique",
+        title: "Expérimentations ciblées",
         paragraphs: [
-          "Chaque mini-projet est documenté : objectifs, limites, critères d’acceptation. Cela me permet d’illustrer ma compréhension des LLM en entretien.",
+          "Lorsque cela est pertinent, je teste certaines solutions à petite échelle pour en comprendre les limites, les apports et les contraintes.",
+          "Ces expérimentations servent principalement à éclairer mes choix techniques dans mes projets personnels et universitaires.",
         ],
       },
     ],
     motivations: [
-      "Comprendre les forces et limites des LLM sur des cas très concrets.",
-      "Mettre en place une base de connaissances vectorielle pour mes documents technos.",
-      "Automatiser la génération de code répétitif (scripts d’ingestion, pipelines).",
+      "Rester à jour sur les évolutions rapides de l’IA et des LLM.",
+      "Développer un esprit critique face aux promesses des outils IA.",
+      "Identifier les usages concrets réellement utiles en développement.",
     ],
     architecture: {
-      title: "Architecture technique",
+      title: "Approche générale",
       paragraphs: [
-        "Approche par briques : collecte (Supabase + embeddings), orchestrateurs (LangChain), appels OpenAI et scoring maison.",
+        "La démarche privilégie l’analyse et l’appropriation conceptuelle plutôt que la multiplication de prototypes lourds.",
       ],
       bullets: [
-        "Stockage vectoriel Supabase pour les prompts contextualisés.",
-        "Agents « guardrails » (regex + heuristiques) pour encadrer les réponses.",
-        "Scripts TypeScript pour tester l’intégration côté front.",
+        "Lecture et synthèse de contenus techniques.",
+        "Tests ponctuels d’outils intégrés aux IDE ou aux workflows existants.",
+        "Réutilisation pragmatique dans des projets réels (site, scripts, automatisations légères).",
       ],
     },
     competencies: [
-      "Prompt engineering orienté produit",
-      "Évaluation de modèles",
-      "Intégration API OpenAI",
-      "Documentation et veille technologique",
+      "Veille technologique structurée",
+      "Analyse critique des outils IA",
+      "Intégration raisonnée de solutions IA",
+      "Capacité à relier technologie et usage réel",
     ],
     challenges: [
       {
-        challenge: "Éviter les hallucinations dans les scripts générés.",
+        challenge:
+          "Évolutions rapides et bruit médiatique autour de l’IA.",
         solution:
-          "Mise en place d’un validateur syntaxique + exécution en sandbox avant validation manuelle.",
+          "Focalisation sur les usages concrets et retour aux besoins réels des projets.",
       },
       {
-        challenge: "Capitaliser sur les apprentissages au fil des tests.",
+        challenge:
+          "Temps limité pour tester en profondeur chaque outil.",
         solution:
-          "Documentation Notion + export vers le site pour présenter rapidement les retours d’expérience.",
+          "Priorisation des outils directement exploitables ou utiles à court terme.",
       },
     ],
     highlights: [
-      { label: "Expériences menées", value: "12 prototypes" },
-      { label: "Modèles testés", value: "GPT-4, GPT-4o, Claude" },
-      { label: "Scripts générés", value: "30+ automatisations" },
+      { label: "Positionnement", value: "Veille & exploration" },
+      { label: "Objectif", value: "Compréhension des usages réels" },
+      { label: "Approche", value: "Pragmatique et critique" },
     ],
     results: [
-      "Vision claire des cas où un LLM apporte un véritable gain.",
-      "Capacité à prototyper rapidement un agent ou un outil d’aide.",
-      "Veille structurée, prête à être partagée en workshop interne.",
+      "Meilleure compréhension des apports et limites des outils IA.",
+      "Capacité à intégrer l’IA de manière pertinente dans des projets existants.",
+      "Discours clair et nuancé sur l’IA en contexte professionnel.",
     ],
   },
 ];
