@@ -94,26 +94,32 @@ export const experiences: ExperienceContent[] = [
           "Les photos présentées ci-dessous illustrent uniquement le lieu d’accueil final du projet, afin de contextualiser l’environnement dans lequel les énigmes ont été déployées."
         ]
       },
-      // {
-      //   "title": "Galerie photo",
-      //   "paragraphs": [
-      //     "Quelques visuels du lieu final d’intégration du projet (photos génériques du site, utilisées à titre de contextualisation)."
-      //   ],
-      //   "images": [
-      //   {
-      //     "src": "/images/escape-game/cite-memoires-1.jpg",
-      //     "alt": "Entrée de la Cité des Mémoires à Hendaye"
-      //   },
-      //   {
-      //     "src": "/images/escape-game/cite-memoires-2.jpg",
-      //     "alt": "Salle immersive de la Cité des Mémoires"
-      //   },
-      //   {
-      //     "src": "/images/escape-game/escape-game-room.jpg",
-      //     "alt": "Espace de jeu où les systèmes électroniques ont été intégrés"
-      //   }
-      // ]
-      // },
+      {
+        "title": "Galerie photo",
+        "paragraphs": [
+          "Quelques visuels du lieu final d'intégration du projet (photos génériques du site, utilisées à titre de contextualisation)."
+        ],
+        "images": [
+        {
+          "src": "/images/andaye-la-cite-des-memoires-exterieur-hendaye-tourisme.webp",
+          "alt": "Entrée de la Cité des Mémoires à Hendaye",
+          "width": 800,
+          "height": 600
+        },
+        {
+          "src": "/images/escape-cite-des-memoires-hendaye-tourisme-1.webp",
+          "alt": "Salle immersive de la Cité des Mémoires",
+          "width": 800,
+          "height": 600
+        },
+        {
+          "src": "/images/img_7790.webp",
+          "alt": "Espace de jeu où les systèmes électroniques ont été intégrés",
+          "width": 800,
+          "height": 600
+        }
+      ]
+      },
       {
         "title": "Défis techniques et contraintes matérielles",
         "paragraphs": [

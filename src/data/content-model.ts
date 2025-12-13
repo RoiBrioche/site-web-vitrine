@@ -14,6 +14,7 @@ export type NarrativeSection = {
   title: string;
   paragraphs: string[];
   bullets?: string[];
+  images?: ExperienceImage[];
 };
 
 export type ChallengeSolution = {
@@ -24,6 +25,8 @@ export type ChallengeSolution = {
 export type GalleryItem = {
   src: string;
   alt: string;
+  width?: number;
+  height?: number;
 };
 
 export type BaseContentItem = {
@@ -53,7 +56,15 @@ export type ExperienceContent = BaseContentItem & {
   missions: string[];
   learnings: string[];
   outcomes: string[];
+  images?: ExperienceImage[];
 };
+
+export interface ExperienceImage {
+  src: string;
+  alt: string;
+  width?: number;
+  height?: number;
+}
 
 export type EducationContent = BaseContentItem & {
   school: string;
