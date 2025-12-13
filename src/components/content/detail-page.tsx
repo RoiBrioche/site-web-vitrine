@@ -119,6 +119,31 @@ export function DetailPageLayout({
                 ))}
               </ul>
             )}
+            {section.images && section.images.length > 0 && (
+              <div className="mt-4 space-y-4">
+                <div className="grid gap-4 md:grid-cols-2">
+                  {section.images.map((image) => (
+                    <figure
+                      key={image.src}
+                      className="overflow-hidden rounded-2xl border border-zinc-200/70 bg-white/80 dark:border-zinc-800/70 dark:bg-zinc-950/70"
+                    >
+                      <Image
+                        src={image.src}
+                        alt={image.alt}
+                        width={image.width || 800}
+                        height={image.height || 600}
+                        className="h-48 w-full object-cover"
+                      />
+                      {image.alt && (
+                        <figcaption className="p-3 text-xs text-zinc-500 dark:text-zinc-400">
+                          {image.alt}
+                        </figcaption>
+                      )}
+                    </figure>
+                  ))}
+                </div>
+              </div>
+            )}
           </article>
         ))}
       </section>
