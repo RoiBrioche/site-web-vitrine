@@ -35,24 +35,12 @@ export default async function ExperienceDetailPage({ params }: ExperiencePagePro
     },
   ];
 
-  const allImages = [
-  ...(experience.images ?? []),
-  ...experience.sections.flatMap(section => section.images ?? [])
-  ];
-
-  const gallery = allImages.map(img => ({
+  const gallery = (experience.images ?? []).map(img => ({
     src: img.src,
     alt: img.alt,
     width: img.width || 800,
     height: img.height || 600
   }));
-
-  //  const gallery = experience.images?.map(img => ({
-  //   src: img.src,
-  //   alt: img.alt,
-  //   width: img.width || 800,  // Utilisez les dimensions fournies ou des valeurs par défaut
-  //   height: img.height || 600
-  // })) || [];
 
   return (
     <DetailPageLayout
