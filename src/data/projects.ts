@@ -86,210 +86,226 @@ export const projects: ProjectContent[] = [
     ],
   },
   {
-    title: "Dashboard interactif anti-phishing",
-    slug: "dashboard-anti-phishing",
+    title: "Conception d’un dashboard anti-phishing",
+    slug: "conception-dashboard-anti-phishing",
     description:
-      "Collecte, agrégation et visualisation des alertes sécurité grâce à un pipeline complet pour surveiller les campagnes de phishing.",
+      "Projet universitaire de cadrage et de conception d’un système d’observabilité sécurité pour le suivi des campagnes de phishing.",
     date: "2024",
-    technologies: ["Grafana", "Loki", "Prometheus", "Docker", "Python"],
+    technologies: ["Grafana", "Prometheus", "Loki", "MongoDB Atlas"],
     content:
-      "Projet d’observabilité sécurité : agréger les logs de tentatives de phishing pour identifier les vagues en cours et partager un tableau de bord clair avec les équipes IT.",
+      "Travail de conception visant à définir les indicateurs, l’architecture cible et les outils nécessaires à la mise en place d’un dashboard de suivi des campagnes de phishing pour des entreprises à moyens limités.",
     sections: [
       {
         title: "Présentation générale",
         paragraphs: [
-          "Mise en place d’un pipeline d’ingestion (Prometheus → Loki) puis d’une couche de visualisation Grafana avec alerting.",
-          "Les tableaux de bord sont pensés pour être lus en moins de 2 minutes par une équipe support : pas de surcharge, uniquement les signaux exploitables.",
+          "Ce projet s’inscrit dans un contexte universitaire, avec pour objectif de réfléchir à une solution réaliste de suivi de la posture de sécurité d’une entreprise face au phishing.",
+          "L’accent a été mis sur la définition des indicateurs pertinents, la lisibilité des dashboards et le choix de technologies adaptées à des structures disposant de peu de ressources.",
         ],
       },
       {
-        title: "Rôle pédagogique",
+        title: "Démarche et rôle pédagogique",
         paragraphs: [
-          "En entretien, je peux détailler la logique de collecte, le mapping des métriques et les arbitrages faits pour rester proche des besoins métier (sécurité + support).",
+          "Le projet m’a permis de travailler sur la phase amont : analyse du besoin métier, étude des outils d’observabilité et conception d’une architecture cible.",
+          "En entretien, je peux expliquer les arbitrages réalisés, les limites rencontrées et les conditions nécessaires pour passer d’une conception théorique à une solution réellement opérationnelle.",
         ],
       },
     ],
     motivations: [
-      "Centraliser des logs auparavant éparpillés sur plusieurs outils.",
-      "Déclencher des alertes proactives pour les équipes support.",
-      "Créer un dashboard pédagogique réutilisable pour d’autres sujets sécurité.",
+      "Comprendre comment transformer des signaux de sécurité en indicateurs exploitables.",
+      "Explorer des solutions accessibles financièrement pour des PME.",
+      "Structurer une démarche de conception avant implémentation technique.",
     ],
     architecture: {
-      title: "Architecture technique",
+      title: "Architecture cible envisagée",
       paragraphs: [
-        "Pipeline containerisé : agents Prometheus scrapent les indicateurs, Loki stocke les logs, Grafana orchestre les dashboards et alertes.",
+        "L’architecture imaginée repose sur une collecte centralisée des indicateurs de sécurité, stockés temporairement dans une base cloud, puis exposés à des outils d’observabilité.",
       ],
       bullets: [
-        "Exporters dédiés pour les passerelles mail et endpoints sensibles.",
-        "Dashboards multi-onglets (tendance, incidents critiques, latence).",
-        "Alerting configuré via Grafana OnCall + notifications Slack.",
+        "Stockage des indicateurs et de leur état dans MongoDB Atlas (solution cloud gratuite ou low-cost).",
+        "Exposition des métriques vers Prometheus pour l’agrégation.",
+        "Analyse et visualisation via Grafana et Loki pour les événements textuels.",
       ],
     },
     competencies: [
-      "Observabilité temps réel",
-      "Conception de dashboards orientés décision",
-      "Automatisation de l’alerting",
-      "Communication avec équipes sécurité",
+      "Analyse des besoins sécurité",
+      "Conception d’architecture d’observabilité",
+      "Définition d’indicateurs métier",
+      "Veille technologique et choix d’outils",
     ],
     challenges: [
       {
-        challenge: "Garantir une volumétrie supportable pour Loki.",
+        challenge:
+          "Concevoir une solution adaptée à des entreprises avec peu de moyens.",
         solution:
-          "Mise en place de règles de rétention différenciées (7 jours pour le brut, 30 jours pour les agrégats) + compression activée.",
+          "Étude de solutions cloud gratuites ou peu coûteuses et limitation volontaire de la complexité de l’architecture.",
       },
       {
-        challenge: "Éviter les faux positifs dans les alertes.",
+        challenge:
+          "Définir des indicateurs réellement utiles sans données réelles.",
         solution:
-          "Seuils dynamiques basés sur la moyenne glissante + période de silence configurable.",
+          "Travail de maquettage et de réflexion métier à partir de scénarios réalistes d’attaques de phishing.",
       },
     ],
     highlights: [
-      { label: "Volume suivi", value: "15k logs / jour" },
-      { label: "Alertes critiques", value: "< 5 min de détection" },
-      { label: "Dashboards", value: "3 vues métier" },
+      { label: "Positionnement", value: "Conception & cadrage" },
+      { label: "Cible", value: "PME / structures à moyens limités" },
+      { label: "Livrables", value: "Architecture cible + maquettes" },
     ],
     results: [
-      "Vue consolidée des incidents et des tendances de phishing.",
-      "Réduction du temps moyen de réaction grâce aux alertes contextualisées.",
-      "Documentation claire pour onboarder rapidement un nouvel analyste.",
+      "Vision claire des composants nécessaires à un dashboard anti-phishing.",
+      "Meilleure compréhension des limites d’un projet sécurité sans données réelles.",
+      "Base conceptuelle réutilisable pour un futur projet opérationnel.",
     ],
   },
   {
-    title: "Projet NLP / Machine Learning",
-    slug: "nlp-machine-learning",
+    title: "Analyse NLP de tickets IT",
+    slug: "analyse-nlp-tickets-it",
     description:
-      "Exploitation automatisée de données textuelles massives pour entraîner des modèles d’apprentissage supervisé en Python.",
+      "Projet universitaire de valorisation de commentaires de tickets IT par des approches NLP supervisées et non supervisées.",
     date: "2024",
-    technologies: ["Python", "spaCy", "scikit-learn", "Pandas", "FastAPI"],
+    technologies: ["Python", "PyTorch", "spaCy", "scikit-learn", "Jupyter"],
     content:
-      "Pipeline NLP complet : collecte, nettoyage, vectorisation et entraînement de modèles supervisés pour classifier des tickets et commentaires utilisateurs.",
+      "Mini-projet mené lors du forum AI4Industry visant à exploiter les commentaires textuels d’un système de tickets IT afin d’identifier les causes récurrentes de pannes et les axes d’amélioration.",
     sections: [
       {
-        title: "Présentation générale",
+        title: "Contexte et problématique",
         paragraphs: [
-          "Le use-case : scorer automatiquement des retours utilisateurs afin de prioriser les améliorations produit.",
-          "J’ai conçu un pipeline modulaire pour tester différentes stratégies de features (TF-IDF, embeddings) et comparer plusieurs modèles.",
+          "Une entreprise de grande taille disposait d’un système de tickets IT contenant de nombreux commentaires textuels (humains, automatiques, mixtes), peu ou pas exploités.",
+          "L’objectif du projet était d’extraire de la valeur de ces données textuelles pour identifier les causes fréquentes de pannes et orienter les actions correctives en amont.",
         ],
       },
       {
-        title: "Rôle pédagogique",
+        title: "Démarche expérimentale",
         paragraphs: [
-          "La page détail me permet d’expliquer les arbitrages data (nettoyage, balancing), la mise en production de l’API FastAPI et les métriques suivies.",
+          "Nous avons travaillé sur des notebooks Jupyter pour explorer différentes approches NLP, de la préparation des données à l’évaluation des résultats.",
+          "Des méthodes d’apprentissage supervisé et non supervisé ont été testées afin de comparer leur pertinence selon la qualité et la structuration des données disponibles.",
         ],
       },
     ],
     motivations: [
-      "Industrialiser des analyses textuelles répétitives.",
-      "Tester des approches hybrides (features engineering + embeddings).",
-      "Créer un socle réutilisable pour d’autres problématiques NLP.",
+      "Valoriser des données textuelles jusque-là sous-exploitées.",
+      "Comparer des approches ML adaptées à des données bruitées et hétérogènes.",
+      "Mieux comprendre les limites des modèles NLP en contexte industriel.",
     ],
     architecture: {
-      title: "Architecture technique",
+      title: "Approche technique",
       paragraphs: [
-        "Pipeline orchestré via des notebooks versionnés, puis packagé dans une API FastAPI pour exposition REST.",
+        "Le travail s’est concentré sur une chaîne d’expérimentation en environnement notebook, favorisant l’itération rapide et l’analyse qualitative des résultats.",
       ],
       bullets: [
-        "Étapes : ingestion → nettoyage → vectorisation → entraînement → évaluation.",
-        "Suivi des expériences (MLflow-like) via des métadonnées JSON.",
-        "Déploiement containerisé pour faciliter les itérations.",
+        "Nettoyage et normalisation des commentaires (langage naturel bruité).",
+        "Vectorisation des textes (TF-IDF, embeddings).",
+        "Tests de clustering pour faire émerger des thématiques récurrentes.",
+        "Tests de classification supervisée lorsque des labels étaient exploitables.",
       ],
     },
     competencies: [
-      "Data cleaning avancé",
-      "Vectorisation et entraînement supervisé",
-      "Industrialisation via API",
-      "Communication des résultats (métriques, confusion matrix)",
+      "Préparation et nettoyage de données textuelles",
+      "Apprentissage supervisé et non supervisé",
+      "Analyse et interprétation de clusters",
+      "Communication des résultats à des interlocuteurs non techniques",
     ],
     challenges: [
       {
-        challenge: "Dataset déséquilibré (peu de tickets critiques).",
+        challenge:
+          "Données textuelles hétérogènes et peu structurées.",
         solution:
-          "Utilisation de techniques de rééchantillonnage + métriques pondérées (F1 pondéré) pour conserver une évaluation pertinente.",
+          "Nettoyage avancé, filtrage des commentaires non informatifs et normalisation linguistique.",
       },
       {
-        challenge: "Explicabilité des prédictions.",
+        challenge:
+          "Difficulté à interpréter certains clusters.",
         solution:
-          "Génération d’explications locales (poids TF-IDF + tokens clés) renvoyées avec chaque classification.",
+          "Analyse qualitative des termes dominants et validation manuelle avec des scénarios métier.",
       },
     ],
     highlights: [
-      { label: "Précision globale", value: "0,89" },
-      { label: "Temps d’inférence", value: "< 120 ms" },
-      { label: "Tickets traités", value: "50k +" },
+      { label: "Approches testées", value: "Supervisé & non supervisé" },
+      { label: "Environnement", value: "Exploration via notebooks" },
+      { label: "Contexte", value: "Cas réel d’entreprise" },
     ],
     results: [
-      "Priorisation automatique des sujets critiques.",
-      "Documentation claire pour rejouer une expérience ou réentraîner un modèle.",
-      "API prête à être branchée sur un back-office ou un bot support.",
+      "Identification de thématiques récurrentes liées aux causes de tickets IT.",
+      "Comparaison des limites et avantages des approches supervisées et non supervisées.",
+      "Meilleure compréhension des prérequis nécessaires à une industrialisation future.",
     ],
   },
   {
-    title: "Veille technique & projets LLM",
-    slug: "veille-technique-llm",
+    title: "Veille et explorations autour de l’IA",
+    slug: "veille-explorations-ia",
     description:
-      "Expérimentations avec des LLM et de l’IA générative pour automatiser du code et produire des scripts analytiques.",
-    date: "2023 — 2025",
-    technologies: ["OpenAI", "LangChain", "Python", "TypeScript", "Supabase"],
+      "Veille technologique continue et expérimentations ciblées autour de l’IA, des LLM et de leurs usages concrets en développement.",
+    date: "Depuis 2023",
+    technologies: [
+      "LLM (OpenAI, Claude)",
+      "Outils IA pour développeurs (Cursor, Windsurf)",
+      "Python",
+      "TypeScript",
+      "Bases vectorielles (concepts)",
+    ],
     content:
-      "Travaux personnels autour des LLM : automatisation de scripts, agents pour générer du code boilerplate, benchmarks internes.",
+      "Démarche personnelle de veille et d’exploration visant à comprendre les usages réels de l’IA et des LLM dans le développement logiciel, au-delà de l’effet de mode.",
     sections: [
       {
-        title: "Présentation générale",
+        title: "Démarche de veille",
         paragraphs: [
-          "Je construis des micro-outils pour accélérer la génération de scripts analytiques ou de documentation technique.",
-          "Les expérimentations couvrent LangChain, les APIs OpenAI, la vectorisation (Supabase / Postgres) et l’évaluation qualitative.",
+          "Je mène une veille continue via des articles techniques, des documentations, des vidéos et des retours d’expérience de la communauté.",
+          "L’objectif n’est pas d’explorer exhaustivement chaque outil, mais d’identifier les tendances crédibles et les usages réellement applicables.",
         ],
       },
       {
-        title: "Rôle pédagogique",
+        title: "Expérimentations ciblées",
         paragraphs: [
-          "Chaque mini-projet est documenté : objectifs, limites, critères d’acceptation. Cela me permet d’illustrer ma compréhension des LLM en entretien.",
+          "Lorsque cela est pertinent, je teste certaines solutions à petite échelle pour en comprendre les limites, les apports et les contraintes.",
+          "Ces expérimentations servent principalement à éclairer mes choix techniques dans mes projets personnels et universitaires.",
         ],
       },
     ],
     motivations: [
-      "Comprendre les forces et limites des LLM sur des cas très concrets.",
-      "Mettre en place une base de connaissances vectorielle pour mes documents technos.",
-      "Automatiser la génération de code répétitif (scripts d’ingestion, pipelines).",
+      "Rester à jour sur les évolutions rapides de l’IA et des LLM.",
+      "Développer un esprit critique face aux promesses des outils IA.",
+      "Identifier les usages concrets réellement utiles en développement.",
     ],
     architecture: {
-      title: "Architecture technique",
+      title: "Approche générale",
       paragraphs: [
-        "Approche par briques : collecte (Supabase + embeddings), orchestrateurs (LangChain), appels OpenAI et scoring maison.",
+        "La démarche privilégie l’analyse et l’appropriation conceptuelle plutôt que la multiplication de prototypes lourds.",
       ],
       bullets: [
-        "Stockage vectoriel Supabase pour les prompts contextualisés.",
-        "Agents « guardrails » (regex + heuristiques) pour encadrer les réponses.",
-        "Scripts TypeScript pour tester l’intégration côté front.",
+        "Lecture et synthèse de contenus techniques.",
+        "Tests ponctuels d’outils intégrés aux IDE ou aux workflows existants.",
+        "Réutilisation pragmatique dans des projets réels (site, scripts, automatisations légères).",
       ],
     },
     competencies: [
-      "Prompt engineering orienté produit",
-      "Évaluation de modèles",
-      "Intégration API OpenAI",
-      "Documentation et veille technologique",
+      "Veille technologique structurée",
+      "Analyse critique des outils IA",
+      "Intégration raisonnée de solutions IA",
+      "Capacité à relier technologie et usage réel",
     ],
     challenges: [
       {
-        challenge: "Éviter les hallucinations dans les scripts générés.",
+        challenge:
+          "Évolutions rapides et bruit médiatique autour de l’IA.",
         solution:
-          "Mise en place d’un validateur syntaxique + exécution en sandbox avant validation manuelle.",
+          "Focalisation sur les usages concrets et retour aux besoins réels des projets.",
       },
       {
-        challenge: "Capitaliser sur les apprentissages au fil des tests.",
+        challenge:
+          "Temps limité pour tester en profondeur chaque outil.",
         solution:
-          "Documentation Notion + export vers le site pour présenter rapidement les retours d’expérience.",
+          "Priorisation des outils directement exploitables ou utiles à court terme.",
       },
     ],
     highlights: [
-      { label: "Expériences menées", value: "12 prototypes" },
-      { label: "Modèles testés", value: "GPT-4, GPT-4o, Claude" },
-      { label: "Scripts générés", value: "30+ automatisations" },
+      { label: "Positionnement", value: "Veille & exploration" },
+      { label: "Objectif", value: "Compréhension des usages réels" },
+      { label: "Approche", value: "Pragmatique et critique" },
     ],
     results: [
-      "Vision claire des cas où un LLM apporte un véritable gain.",
-      "Capacité à prototyper rapidement un agent ou un outil d’aide.",
-      "Veille structurée, prête à être partagée en workshop interne.",
+      "Meilleure compréhension des apports et limites des outils IA.",
+      "Capacité à intégrer l’IA de manière pertinente dans des projets existants.",
+      "Discours clair et nuancé sur l’IA en contexte professionnel.",
     ],
   },
 ];
