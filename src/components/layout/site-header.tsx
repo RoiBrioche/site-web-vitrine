@@ -23,7 +23,7 @@ export function SiteHeader() {
               alt="Photo de profil"
               fill
               className="object-cover"
-              sizes="40px"
+              sizes="48px"
               priority
             />
           </div>
