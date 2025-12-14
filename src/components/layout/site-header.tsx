@@ -74,7 +74,7 @@ function ProfileCard({ isOpen, onClose, avatarRef }: {
       }}
     >
       <div 
-        className="relative overflow-hidden rounded-2xl bg-white shadow-xl dark:bg-zinc-900 dark:ring-1 dark:ring-zinc-800"
+        className="relative overflow-hidden rounded-2xl bg-[rgb(3,6,23)] text-white shadow-xl ring-1 ring-white/10"
         style={{
           width: dimensions.width,
           height: dimensions.height,
