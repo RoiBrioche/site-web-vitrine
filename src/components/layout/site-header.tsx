@@ -157,9 +157,24 @@ export function SiteHeader() {
     }
   };
 
+  // Ajout d'un effet pour gérer le scroll et le header
+  useEffect(() => {
+    // S'assurer que le body a un padding-top égal à la hauteur du header
+    const header = document.querySelector('header');
+    if (header) {
+      const headerHeight = header.offsetHeight;
+      document.body.style.paddingTop = `${headerHeight}px`;
+      
+      // Nettoyage
+      return () => {
+        document.body.style.paddingTop = '';
+      };
+    }
+  }, []);
+
   return (
-    <div className="relative">
-      <header className="sticky top-0 z-50 border-b border-zinc-200/50 bg-white/80 backdrop-blur dark:border-zinc-800/60 dark:bg-zinc-950/70">
+    <>
+      <header className="fixed top-0 left-0 right-0 z-50 border-b border-zinc-200/50 bg-white/95 backdrop-blur-md dark:border-zinc-800/60 dark:bg-zinc-950/70">
         <Container className="flex h-16 items-center justify-between relative">
           {/* Branding - Toujours visible */}
           <Link 
@@ -212,59 +227,99 @@ export function SiteHeader() {
         />
       </header>
 
-      {/* Menu mobile - Maintenant en dehors du header */}
+      {/* Menu mobile - Complètement séparé du header */}
+      <div 
+        className={`fixed z-40 bg-white/95 dark:bg-zinc-950/70 backdrop-blur-sm transition-all duration-300 ease-in-out border-t border-zinc-200/50 dark:border-zinc-800/50 md:hidden
+          ${isMenuOpen ? 'translate-y-0' : '-translate-y-full'}
+        `}
+        style={{
+          top: '4rem', // Hauteur du header
+          left: '50%',
+          transform: isMenuOpen ? 'translateX(-50%) translateY(0)' : 'translateX(-50%) translateY(-100%)',
+          width: '90%',
+          maxWidth: '400px',
+          maxHeight: 'calc(100vh - 5rem)',
+          borderRadius: '0 0 1rem 1rem',
+          overflowY: 'auto',
+          boxShadow: '0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1)'
+        }}
+        aria-hidden={!isMenuOpen}
+      >
+        <nav className="py-2">
+          <ul className="divide-y divide-zinc-200/50 dark:divide-zinc-700/50">
+            {navLinks.map((link, index) => (
+              <li key={link.href} className="hover:bg-zinc-100/50 dark:hover:bg-zinc-800/50 transition-colors">
+                <Link
+                  className="block px-6 py-4 text-base font-medium text-zinc-800 dark:text-zinc-200"
+                  href={link.href}
+                  onClick={handleNavLinkClick}
+                >
+                  {link.label}
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </nav>
+      </div>
+      
+      {/* Overlay semi-transparent */}
       {isMenuOpen && (
         <div 
-          className="fixed left-0 right-0 z-40 bg-white/95 dark:bg-zinc-950/95 backdrop-blur-sm transition-all duration-300 ease-in-out transform border-t border-zinc-200/50 dark:border-zinc-800/50 md:hidden"
-          style={{
-            top: '4rem', // Hauteur du header
-            height: 'calc(100vh - 4rem)', // Hauteur de l'écran moins la hauteur du header
-            overflowY: 'auto',
-            transform: 'translateY(0)'
-          }}
-          aria-hidden={!isMenuOpen}
-        >
-          <nav className="p-4">
-            <ul className="space-y-2">
-              {navLinks.map((link) => (
-                <li key={link.href}>
-                  <Link
-                    className="block px-4 py-3 text-lg font-medium rounded-lg text-zinc-800 hover:bg-zinc-100 dark:text-zinc-200 dark:hover:bg-zinc-800"
-                    href={link.href}
-                    onClick={handleNavLinkClick}
-                  >
-                    {link.label}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </nav>
-        </div>
+          className="fixed inset-0 z-30 bg-black/20 backdrop-blur-sm md:hidden"
+          onClick={closeMenu}
+          aria-hidden="true"
+        />
       )}
       
-      {/* Empêcher le défilement du corps lorsque le menu est ouvert */}
+      {/* Styles globaux */}
       <style jsx global>{`
+        /* Styles de base pour le header fixe */
+        body {
+          padding-top: 4rem; /* Hauteur du header */
+        }
+
         @media (max-width: 767px) {
           body {
             overflow-x: hidden;
-            position: relative;
             width: 100%;
+            padding-right: 0 !important;
           }
           
-          /* Empêcher le défilement horizontal sur mobile */
           html, body {
             max-width: 100%;
             overflow-x: hidden;
+            -webkit-overflow-scrolling: touch;
           }
           
-          /* Masquer le contenu derrière le menu ouvert */
+          /* Améliorer le scroll sur iOS */
+          @supports (-webkit-touch-callout: none) {
+            body {
+              position: relative;
+              width: 100%;
+              min-height: 100%;
+            }
+          }
+          
+          /* Gestion du menu ouvert */
           body.menu-open {
             overflow: hidden;
-            height: 100vh;
+            position: fixed;
+            width: 100%;
+            height: 100%;
+          }
+          
+          /* Améliorer la visibilité des liens */
+          @media (hover: hover) and (pointer: fine) {
+            .hover\:bg-zinc-100\/50:hover {
+              background-color: rgba(243, 244, 246, 0.5);
+            }
+            .dark .hover\:bg-zinc-800\/50:hover {
+              background-color: rgba(39, 39, 42, 0.5);
+            }
           }
         }
       `}</style>
-    </div>
+    </>
   );
 }
 
