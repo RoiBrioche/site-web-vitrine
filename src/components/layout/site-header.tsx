@@ -179,14 +179,16 @@ export function SiteHeader() {
           {/* Branding - Toujours visible */}
           <Link 
             href="/" 
-            className="flex items-center gap-3 font-semibold tracking-tight"
+            className="flex items-center gap-3 font-semibold tracking-tight group"
             onClick={handleNavLinkClick}
           >
             <ProfileImage 
               onClick={() => setIsCardOpen(true)} 
               buttonRef={avatarRef}
             />
-            <span className="text-sm sm:text-base whitespace-nowrap">{siteConfig.name}</span>
+            <span className="text-sm sm:text-base whitespace-nowrap transition-all duration-300 group-hover:text-white group-hover:drop-shadow-[0_0_8px_rgba(199,210,254,0.8)]">
+              {siteConfig.name}
+            </span>
           </Link>
 
           {/* Bouton menu hamburger - Uniquement sur mobile */}
@@ -209,7 +211,7 @@ export function SiteHeader() {
               {navLinks.map((link) => (
                 <li key={link.href}>
                   <Link
-                    className="rounded-full px-3 py-1 transition hover:text-zinc-950 dark:hover:text-white"
+                    className="rounded-full px-3 py-1 transition-all duration-300 hover:text-white hover:drop-shadow-[0_0_8px_rgba(199,210,254,0.8)]"
                     href={link.href}
                   >
                     {link.label}
