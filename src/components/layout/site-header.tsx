@@ -5,7 +5,8 @@ import Link from "next/link";
 import Image from "next/image";
 import { siteConfig } from "@/config/site";
 import { Container } from "./container";
-import { X } from "lucide-react";
+import { X, Menu } from "lucide-react";
+import { useMobileMenu } from "@/hooks/useMobileMenu";
 
 // Animation de morphing avec Spring ou une simple transition CSS
 const springTransition = {
@@ -147,38 +148,123 @@ function ProfileImage({ onClick, buttonRef }: {
 export function SiteHeader() {
   const [isCardOpen, setIsCardOpen] = useState(false);
   const avatarRef = useRef<HTMLButtonElement>(null!);
+  const { isMenuOpen, isMobile, toggleMenu, closeMenu } = useMobileMenu();
+
+  // Fermer le menu quand on clique sur un lien
+  const handleNavLinkClick = () => {
+    if (isMobile) {
+      closeMenu();
+    }
+  };
 
   return (
-    <header className="sticky top-0 z-50 border-b border-zinc-200/50 bg-white/80 backdrop-blur dark:border-zinc-800/60 dark:bg-zinc-950/70">
-      <Container className="flex h-16 items-center justify-between">
-        <Link href="/" className="flex items-center gap-3 font-semibold tracking-tight">
-          <ProfileImage 
-            onClick={() => setIsCardOpen(true)} 
-            buttonRef={avatarRef}
-          />
-          <span>{siteConfig.name}</span>
-        </Link>
-        <nav>
-          <ul className="flex items-center gap-4 text-sm font-medium text-zinc-600 dark:text-zinc-300">
-            {navLinks.map((link) => (
-              <li key={link.href}>
-                <Link
-                  className="rounded-full px-3 py-1 transition hover:text-zinc-950 dark:hover:text-white"
-                  href={link.href}
-                >
-                  {link.label}
-                </Link>
-              </li>
-            ))}
-          </ul>
-        </nav>
-      </Container>
-      <ProfileCard 
-        isOpen={isCardOpen} 
-        onClose={() => setIsCardOpen(false)}
-        avatarRef={avatarRef}
-      />
-    </header>
+    <div className="relative">
+      <header className="sticky top-0 z-50 border-b border-zinc-200/50 bg-white/80 backdrop-blur dark:border-zinc-800/60 dark:bg-zinc-950/70">
+        <Container className="flex h-16 items-center justify-between relative">
+          {/* Branding - Toujours visible */}
+          <Link 
+            href="/" 
+            className="flex items-center gap-3 font-semibold tracking-tight"
+            onClick={handleNavLinkClick}
+          >
+            <ProfileImage 
+              onClick={() => setIsCardOpen(true)} 
+              buttonRef={avatarRef}
+            />
+            <span className="hidden sm:inline">{siteConfig.name}</span>
+          </Link>
+
+          {/* Bouton menu hamburger - Uniquement sur mobile */}
+          <button
+            onClick={toggleMenu}
+            className="md:hidden p-2 -mr-2 rounded-md text-zinc-600 hover:bg-zinc-100 dark:text-zinc-300 dark:hover:bg-zinc-800"
+            aria-label="Menu"
+            aria-expanded={isMenuOpen}
+          >
+            {isMenuOpen ? (
+              <X className="h-5 w-5" />
+            ) : (
+              <Menu className="h-5 w-5" />
+            )}
+          </button>
+          
+          {/* Navigation desktop */}
+          <nav className="hidden md:block">
+            <ul className="flex items-center gap-4 text-sm font-medium text-zinc-600 dark:text-zinc-300">
+              {navLinks.map((link) => (
+                <li key={link.href}>
+                  <Link
+                    className="rounded-full px-3 py-1 transition hover:text-zinc-950 dark:hover:text-white"
+                    href={link.href}
+                  >
+                    {link.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </nav>
+        </Container>
+
+        <ProfileCard 
+          isOpen={isCardOpen} 
+          onClose={() => setIsCardOpen(false)}
+          avatarRef={avatarRef}
+        />
+      </header>
+
+      {/* Menu mobile - Maintenant en dehors du header */}
+      {isMenuOpen && (
+        <div 
+          className="fixed left-0 right-0 z-40 bg-white/95 dark:bg-zinc-950/95 backdrop-blur-sm transition-all duration-300 ease-in-out transform border-t border-zinc-200/50 dark:border-zinc-800/50 md:hidden"
+          style={{
+            top: '4rem', // Hauteur du header
+            height: 'calc(100vh - 4rem)', // Hauteur de l'écran moins la hauteur du header
+            overflowY: 'auto',
+            transform: 'translateY(0)'
+          }}
+          aria-hidden={!isMenuOpen}
+        >
+          <nav className="p-4">
+            <ul className="space-y-2">
+              {navLinks.map((link) => (
+                <li key={link.href}>
+                  <Link
+                    className="block px-4 py-3 text-lg font-medium rounded-lg text-zinc-800 hover:bg-zinc-100 dark:text-zinc-200 dark:hover:bg-zinc-800"
+                    href={link.href}
+                    onClick={handleNavLinkClick}
+                  >
+                    {link.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </nav>
+        </div>
+      )}
+      
+      {/* Empêcher le défilement du corps lorsque le menu est ouvert */}
+      <style jsx global>{`
+        @media (max-width: 767px) {
+          body {
+            overflow-x: hidden;
+            position: relative;
+            width: 100%;
+          }
+          
+          /* Empêcher le défilement horizontal sur mobile */
+          html, body {
+            max-width: 100%;
+            overflow-x: hidden;
+          }
+          
+          /* Masquer le contenu derrière le menu ouvert */
+          body.menu-open {
+            overflow: hidden;
+            height: 100vh;
+          }
+        }
+      `}</style>
+    </div>
   );
 }
 
