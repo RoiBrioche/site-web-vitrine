@@ -186,7 +186,7 @@ export function SiteHeader() {
               onClick={() => setIsCardOpen(true)} 
               buttonRef={avatarRef}
             />
-            <span className="hidden sm:inline">{siteConfig.name}</span>
+            <span className="text-sm sm:text-base whitespace-nowrap">{siteConfig.name}</span>
           </Link>
 
           {/* Bouton menu hamburger - Uniquement sur mobile */}
