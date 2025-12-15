@@ -5,7 +5,8 @@ import Link from "next/link";
 import Image from "next/image";
 import { siteConfig } from "@/config/site";
 import { Container } from "./container";
-import { X } from "lucide-react";
+import { X, Menu } from "lucide-react";
+import { useMobileMenu } from "@/hooks/useMobileMenu";
 
 // Animation de morphing avec Spring ou une simple transition CSS
 const springTransition = {
@@ -147,24 +148,113 @@ function ProfileImage({ onClick, buttonRef }: {
 export function SiteHeader() {
   const [isCardOpen, setIsCardOpen] = useState(false);
   const avatarRef = useRef<HTMLButtonElement>(null!);
+  const { isMenuOpen, isMobile, toggleMenu, closeMenu } = useMobileMenu();
+
+  // Fermer le menu quand on clique sur un lien
+  const handleNavLinkClick = () => {
+    if (isMobile) {
+      closeMenu();
+    }
+  };
+
+  // Ajout d'un effet pour gérer le scroll et le header
+  useEffect(() => {
+    // S'assurer que le body a un padding-top égal à la hauteur du header
+    const header = document.querySelector('header');
+    if (header) {
+      const headerHeight = header.offsetHeight;
+      document.body.style.paddingTop = `${headerHeight}px`;
+      
+      // Nettoyage
+      return () => {
+        document.body.style.paddingTop = '';
+      };
+    }
+  }, []);
 
   return (
-    <header className="sticky top-0 z-50 border-b border-zinc-200/50 bg-white/80 backdrop-blur dark:border-zinc-800/60 dark:bg-zinc-950/70">
-      <Container className="flex h-16 items-center justify-between">
-        <Link href="/" className="flex items-center gap-3 font-semibold tracking-tight">
-          <ProfileImage 
-            onClick={() => setIsCardOpen(true)} 
-            buttonRef={avatarRef}
-          />
-          <span>{siteConfig.name}</span>
-        </Link>
-        <nav>
-          <ul className="flex items-center gap-4 text-sm font-medium text-zinc-600 dark:text-zinc-300">
-            {navLinks.map((link) => (
-              <li key={link.href}>
+    <>
+      <header className="fixed top-0 left-0 right-0 z-50 border-b border-zinc-200/50 bg-white/95 backdrop-blur-md dark:border-zinc-800/60 dark:bg-zinc-950/70">
+        <Container className="flex h-16 items-center justify-between relative">
+          {/* Branding - Toujours visible */}
+          <Link 
+            href="/" 
+            className="flex items-center gap-3 font-semibold tracking-tight group"
+            onClick={handleNavLinkClick}
+          >
+            <ProfileImage 
+              onClick={() => setIsCardOpen(true)} 
+              buttonRef={avatarRef}
+            />
+            <span className="text-sm sm:text-base whitespace-nowrap transition-all duration-300 group-hover:text-white group-hover:drop-shadow-[0_0_8px_rgba(199,210,254,0.8)]">
+              {siteConfig.name}
+            </span>
+          </Link>
+
+          {/* Bouton menu hamburger - Uniquement sur mobile */}
+          <button
+            onClick={toggleMenu}
+            className="md:hidden p-2 -mr-2 rounded-md text-zinc-600 hover:bg-zinc-100 dark:text-zinc-300 dark:hover:bg-zinc-800"
+            aria-label="Menu"
+            aria-expanded={isMenuOpen}
+          >
+            {isMenuOpen ? (
+              <X className="h-5 w-5" />
+            ) : (
+              <Menu className="h-5 w-5" />
+            )}
+          </button>
+          
+          {/* Navigation desktop */}
+          <nav className="hidden md:block">
+            <ul className="flex items-center gap-4 text-sm font-medium text-zinc-600 dark:text-zinc-300">
+              {navLinks.map((link) => (
+                <li key={link.href}>
+                  <Link
+                    className="rounded-full px-3 py-1 transition-all duration-300 hover:text-white hover:drop-shadow-[0_0_8px_rgba(199,210,254,0.8)]"
+                    href={link.href}
+                  >
+                    {link.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </nav>
+        </Container>
+
+        <ProfileCard 
+          isOpen={isCardOpen} 
+          onClose={() => setIsCardOpen(false)}
+          avatarRef={avatarRef}
+        />
+      </header>
+
+      {/* Menu mobile - Complètement séparé du header */}
+      <div 
+        className={`fixed z-40 bg-white/95 dark:bg-zinc-950/70 backdrop-blur-sm transition-all duration-300 ease-in-out border-t border-zinc-200/50 dark:border-zinc-800/50 md:hidden
+          ${isMenuOpen ? 'translate-y-0' : '-translate-y-full'}
+        `}
+        style={{
+          top: '4rem', // Hauteur du header
+          left: '50%',
+          transform: isMenuOpen ? 'translateX(-50%) translateY(0)' : 'translateX(-50%) translateY(-100%)',
+          width: '90%',
+          maxWidth: '400px',
+          maxHeight: 'calc(100vh - 5rem)',
+          borderRadius: '0 0 1rem 1rem',
+          overflowY: 'auto',
+          boxShadow: '0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1)'
+        }}
+        aria-hidden={!isMenuOpen}
+      >
+        <nav className="py-2">
+          <ul className="divide-y divide-zinc-200/50 dark:divide-zinc-700/50">
+            {navLinks.map((link, index) => (
+              <li key={link.href} className="hover:bg-zinc-100/50 dark:hover:bg-zinc-800/50 transition-colors">
                 <Link
-                  className="rounded-full px-3 py-1 transition hover:text-zinc-950 dark:hover:text-white"
+                  className="block px-6 py-4 text-base font-medium text-zinc-800 dark:text-zinc-200"
                   href={link.href}
+                  onClick={handleNavLinkClick}
                 >
                   {link.label}
                 </Link>
@@ -172,13 +262,66 @@ export function SiteHeader() {
             ))}
           </ul>
         </nav>
-      </Container>
-      <ProfileCard 
-        isOpen={isCardOpen} 
-        onClose={() => setIsCardOpen(false)}
-        avatarRef={avatarRef}
-      />
-    </header>
+      </div>
+      
+      {/* Overlay semi-transparent */}
+      {isMenuOpen && (
+        <div 
+          className="fixed inset-0 z-30 bg-black/20 backdrop-blur-sm md:hidden"
+          onClick={closeMenu}
+          aria-hidden="true"
+        />
+      )}
+      
+      {/* Styles globaux */}
+      <style jsx global>{`
+        /* Styles de base pour le header fixe */
+        body {
+          padding-top: 4rem; /* Hauteur du header */
+        }
+
+        @media (max-width: 767px) {
+          body {
+            overflow-x: hidden;
+            width: 100%;
+            padding-right: 0 !important;
+          }
+          
+          html, body {
+            max-width: 100%;
+            overflow-x: hidden;
+            -webkit-overflow-scrolling: touch;
+          }
+          
+          /* Améliorer le scroll sur iOS */
+          @supports (-webkit-touch-callout: none) {
+            body {
+              position: relative;
+              width: 100%;
+              min-height: 100%;
+            }
+          }
+          
+          /* Gestion du menu ouvert */
+          body.menu-open {
+            overflow: hidden;
+            position: fixed;
+            width: 100%;
+            height: 100%;
+          }
+          
+          /* Améliorer la visibilité des liens */
+          @media (hover: hover) and (pointer: fine) {
+            .hover\:bg-zinc-100\/50:hover {
+              background-color: rgba(243, 244, 246, 0.5);
+            }
+            .dark .hover\:bg-zinc-800\/50:hover {
+              background-color: rgba(39, 39, 42, 0.5);
+            }
+          }
+        }
+      `}</style>
+    </>
   );
 }
 
