@@ -42,14 +42,13 @@ export default function ContactPage() {
         </div>
         <div className="rounded-3xl border border-dashed border-zinc-300/70 p-6 text-sm text-zinc-600 dark:border-zinc-800/70 dark:text-zinc-300">
           <p className="font-semibold text-zinc-900 dark:text-white">
-            Déploiement sur Vercel
+            Disponibilité actuelle
           </p>
           <p className="mt-2">
-            Ce projet est optimisé pour Vercel : previews automatiques,
-            environnement Edge-ready et variables sécurisées via le dashboard.
+            Je suis actuellement <strong>à l'écoute d'opportunités</strong> (CDI ou missions) dans le secteur de l'informatique.
           </p>
           <p className="mt-2">
-            Exécutez simplement <code>vercel</code> et connectez votre dépôt.
+            📍 Mobile <strong>France entière</strong> et ouvert au télétravail partiel ou au full remote.
           </p>
         </div>
       </section>
