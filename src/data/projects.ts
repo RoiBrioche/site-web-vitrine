@@ -6,7 +6,7 @@ export const projects: ProjectContent[] = [
     slug: "unista-smart-dosage-simulation",
     description:
       "Développement d'un simulateur de supervision industrielle (SCADA/IHM) en Python. Architecture MVC, simulation physique en temps réel et interface opérateur moderne.",
-    date: "2024",
+    date: "2026",
     technologies: [
       "Python 3",
       "CustomTkinter",
