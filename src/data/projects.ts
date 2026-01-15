@@ -2,6 +2,90 @@ import { ProjectContent } from "./content-model";
 
 export const projects: ProjectContent[] = [
   {
+    title: "Unista Smart-Dosage Unit",
+    slug: "unista-smart-dosage-simulation",
+    description:
+      "Développement d'un simulateur de supervision industrielle (SCADA/IHM) en Python. Architecture MVC, simulation physique en temps réel et interface opérateur moderne.",
+    date: "2024",
+    technologies: [
+      "Python 3",
+      "CustomTkinter",
+      "Architecture MVC",
+      "Threading",
+      "POO",
+    ],
+    content:
+      "Ce projet est un démonstrateur technique réalisé dans le cadre d'une candidature pour Unista. Il simule le pilotage complet d'une unité de dosage pharmaceutique, prouvant ma capacité à concevoir des logiciels structurés, robustes et orientés vers l'expérience utilisateur industrielle.",
+    sections: [
+      {
+        title: "Fonctionnalités simulées",
+        paragraphs: [
+          "Le logiciel reproduit fidèlement le comportement d'une machine : inertie thermique du chauffage, gestion hydraulique (pression/niveau cuve) et aléas de production (pièces défectueuses).",
+          "L'opérateur dispose d'un synoptique animé, de commandes manuelles/auto, d'une gestion d'arrêts d'urgence et d'un journal d'événements (logs) pour la traçabilité.",
+        ],
+      },
+      {
+        title: "Approche UX/UI Industrielle",
+        paragraphs: [
+          "L'interface a été pensée pour l'efficacité : lecture rapide des KPIs (TRS, Rebuts), codes couleurs normalisés (Vert/Orange/Rouge) pour les états machines, et mode sombre pour le confort visuel.",
+          "L'utilisation de la librairie CustomTkinter permet de moderniser le rendu tout en conservant la structure classique des écrans de supervision.",
+        ],
+      },
+    ],
+    motivations: [
+      "Démontrer ma maîtrise de la Programmation Orientée Objet (POO) et des architectures découplées.",
+      "Prouver qu'il est possible de réaliser des interfaces industrielles modernes et réactives en Python pur.",
+      "Simuler des contraintes physiques réelles (bruit capteur, inertie) pour complexifier la logique de code.",
+    ],
+    architecture: {
+      title: "Architecture MVC (Modèle-Vue-Contrôleur)",
+      paragraphs: [
+        "Pour garantir la maintenabilité, le code suit strictement le patron MVC. Le 'Modèle' gère la physique et les états sans savoir qu'une interface existe. La 'Vue' se contente d'afficher les données et de transmettre les commandes.",
+      ],
+      bullets: [
+        "Backend (machine.py) : Calculs physiques, boucle de simulation et gestion des états d'urgence.",
+        "Frontend (main_view.py) : Interface réactive mise à jour par polling (10 FPS) sans bloquer le thread principal.",
+        "Composants : Widgets réutilisables (Jauges, Badges d'état) pour éviter la duplication de code.",
+      ],
+    },
+    competencies: [
+      "Conception d'architecture logicielle (Separation of Concerns)",
+      "Développement d'interfaces graphiques (GUI) événementielles",
+      "Logique d'automatisme (Grafcet, Gestion d'états)",
+      "Simulation physique mathématique simple",
+    ],
+    challenges: [
+      {
+        challenge:
+          "Garder l'interface fluide malgré les calculs en arrière-plan.",
+        solution:
+          "Mise en place d'une boucle de mise à jour non-bloquante (`update_ui_loop`) utilisant `after()` de Tkinter pour synchroniser l'affichage avec le modèle physique sans figer la fenêtre.",
+      },
+      {
+        challenge:
+          "Rendre la simulation réaliste (ne pas avoir des valeurs statiques).",
+        solution:
+          "Intégration de 'bruit' aléatoire sur les capteurs et programmation d'une inertie thermique (la température monte/descend progressivement) pour imiter le comportement réel des fluides.",
+      },
+    ],
+    highlights: [
+      { label: "Architecture", value: "Modèle-Vue" },
+      { label: "Bibliothèque UI", value: "CustomTkinter" },
+      { label: "Simulation", value: "Physique tps réel" },
+    ],
+    results: [
+      "Un logiciel autonome exécutable sans configuration complexe.",
+      "Une base de code propre permettant de remplacer le simulateur par une connexion Modbus/OPC UA réelle.",
+      "Une démonstration concrète de rigueur technique pour un contexte industriel.",
+    ],
+    links: [
+      {
+        label: "Code source (GitHub)",
+        href: "https://github.com/roibrioche/unista-smart-dosage-simulation",
+      },
+    ],
+  },
+  {
     title: "Site vitrine Next.js",
     slug: "site-vitrine-nextjs",
     description:
