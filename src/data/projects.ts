@@ -2,6 +2,99 @@ import { ProjectContent } from "./content-model";
 
 export const projects: ProjectContent[] = [
   {
+    title: "Dashboard E.Leclerc Analytics",
+    slug: "dashboard-e-leclerc-analytics",
+    description:
+      "Dashboard interactif d'analyse des performances commerciales avec visualisation de données en temps réel, filtres dynamiques et KPIs décisionnels.",
+    date: "2026",
+    technologies: [
+      "Python 3.11",
+      "Dash 2.0+",
+      "Pandas",
+      "Plotly",
+      "Dash Bootstrap Components",
+      "Render",
+    ],
+    content:
+      "Dashboard analytique moderne développé pour l'analyse des performances commerciales E.Leclerc. Application web complète permettant la visualisation des données de ventes avec des filtres dynamiques pour optimiser les décisions business.\n\n⚠️ <strong>Note importante</strong> : La démo est hébergée sur Render (plan gratuit). Le site se désactive automatiquement après 15 minutes d'inactivité et nécessite environ 1 minute pour redémarrer. Merci de votre patience lors du premier accès.",
+    sections: [
+      {
+        title: "Fonctionnalités principales",
+        paragraphs: [
+          "Tableau de bord complet avec KPIs en temps réel : chiffre d'affaires, marge, transactions, panier moyen et satisfaction client.",
+          "Filtres avancés permettant l'analyse par période temporelle, catégories de produits, modes de paiement et villes multiples.",
+          "Visualisations interactives incluant graphiques temporels, diagrammes circulaires, bar charts et analyses d'activité horaire.",
+        ],
+      },
+      {
+        title: "Approche technique et UX",
+        paragraphs: [
+          "Architecture basée sur Dash framework pour le développement rapide d'applications web analytiques avec Python.",
+          "Charte graphique respectant l'identité E.Leclerc (bleu corporate et orange dynamique) avec interface responsive.",
+          "Utilisation de Plotly pour des visualisations interactives et de Dash Bootstrap Components pour une UI moderne.",
+        ],
+      },
+    ],
+    motivations: [
+      "Démontrer ma capacité à développer des applications web analytiques complètes avec Python.",
+      "Présenter un portfolio technique concret avec des visualisations de données interactives.",
+      "Résoudre un problème business réel : l'analyse de performances commerciales pour la prise de décision.",
+    ],
+    architecture: {
+      title: "Architecture Dash Python",
+      paragraphs: [
+        "Application web monolithique basée sur le framework Dash, séparée en couches logiques pour la maintenabilité et l'évolutivité.",
+      ],
+      bullets: [
+        "Backend (dashboard.py) : Application principale Dash avec callbacks et gestion des interactions.",
+        "Analysis (analysis.py) : Fonctions de traitement et d'analyse des données avec Pandas.",
+        "Utils (utils.py) : Utilitaires de traitement et fonctions réutilisables.",
+        "Assets : Charte graphique, styles personnalisés et ressources visuelles.",
+      ],
+    },
+    competencies: [
+      "Développement d'applications web analytiques avec Python",
+      "Visualisation de données interactives avec Plotly",
+      "Analyse de données avec Pandas",
+      "Design responsive et UX/UI moderne",
+      "Déploiement cloud avec CI/CD",
+    ],
+    challenges: [
+      {
+        challenge:
+          "Gérer de grands volumes de données tout en maintenant des performances fluides.",
+        solution:
+          "Optimisation des requêtes Pandas, utilisation de callbacks efficaces et mise en cache des calculs fréquents pour garantir une expérience utilisateur réactive.",
+      },
+      {
+        challenge:
+          "Créer des visualisations à la fois informatives et esthétiquement cohérentes.",
+        solution:
+          "Développement d'une charte graphique complète avec couleurs E.Leclerc et utilisation avancée de Plotly pour des graphiques personnalisés et interactifs.",
+      },
+    ],
+    highlights: [
+      { label: "Framework", value: "Dash Python" },
+      { label: "Visualisations", value: "Plotly interactif" },
+      { label: "Déploiement", value: "Render cloud" },
+    ],
+    results: [
+      "Dashboard fonctionnel déployé en production avec analyse multi-dimensionnelles des ventes.",
+      "Interface intuitive permettant une analyse business complète sans connaissances techniques.",
+      "Base de code modulaire et maintenable facilitant l'ajout de nouvelles fonctionnalités.",
+    ],
+    links: [
+      {
+        label: "Code source (GitHub)",
+        href: "https://github.com/RoiBrioche/Dashboard_Data_Supermarket",
+      },
+      {
+        label: "Démo en ligne (Render)",
+        href: "https://dashboard-data-supermarket.onrender.com/",
+      },
+    ],
+  },
+  {
     title: "Unista Smart-Dosage Unit",
     slug: "unista-smart-dosage-simulation",
     description:
